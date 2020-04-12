@@ -39,9 +39,18 @@ struct machine_code_lexeme{
     int disp;
 
 };
+
+struct User{
+    string name;
+    int disp;
+
+};
+
 extern vector<machine_code_lexeme> Machine_code;
+extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, string>> DictionaryOfTokens;
 
 extern int DataSize;
+extern int DispMain;

@@ -10,18 +10,21 @@
 
 
 int DataSize = 0;
+int DispMain = 0;
 
 vector<vector<lexeme>> AllTokens;
 
 vector<struct_of_sentence> AllStruct;
 
-vector<pair<string, string>> DictionaryOfTokens = {{"data",    "label"},
+vector<User> MassOfUser;
+
+vector<pair<string, string>> DictionaryOfTokens = {{"data",    "label_d"},
                                                    {"segment", "segmentword"},
                                                    {"db",      "directive"},
                                                    {"dd",      "directive"},
-                                                   {"equ",     "equ_directive"},
+                                                   {"equ",     "directive"},
                                                    {"ends",    "segmentword"},
-                                                   {"code",    "label"},
+                                                   {"code",    "label_c"},
                                                    {"jz",      "instruction"},
                                                    {"mov",     "instruction"},
                                                    {"eax",     "register 32"},

@@ -1,26 +1,25 @@
 #include "Parsing.h"
+#include "ErrorCheck.h"
 
 int main() {
 
     LoadFromFile("test.asm");
+    FillMassOfUsers();
 
     for(int i = 0; i < AllTokens.size(); i++){
+        if(AllTokens[i].empty())continue;
+        cout << Hex(DispMain);
+        Diplacement(AllTokens[i]);
         for(int j = 0 ; j < AllTokens[i].size();j++){
-            //cout << AllTokens[i][j].name << ' ';
+            cout << AllTokens[i][j].name << ' ';
         }
-        //cout << endl;
+        cout << endl;
     }
-    vector<string> test = {
-            {"mov ax,bx"},
-            {"mov ax,bx"},
-            {"mov ax,bx"},
-            {"mov ax,bx"},
-            {"mov ax,bx"},
-            {"mov ax,bx"},
-    };
-    for(int i = 0; i < Machine_code.size(); i++){
-        cout << Machine_code[i].opcode << ' ';
+
+    for(int i = 0; i < MassOfUser.size(); i++){
+        cout << MassOfUser[i].name << "   " <<   Hex(MassOfUser[i].disp) << endl;
     }
+
 
     return 0;
 }

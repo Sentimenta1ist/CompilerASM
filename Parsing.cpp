@@ -1,12 +1,36 @@
 #include "Parsing.h"
 
+bool compareByLength(const User &a, const User &b)
+{
+    return a.name.size() < b.name.size();
+}
+
+void FillMassOfUsers(){
+    User alone;
+    for(int i = 0; i < AllTokens.size(); i++){
+        if(AllTokens[i].empty())continue;
+        for(int j = 0 ; j < AllTokens[i].size() - 1;j++){
+                if(AllTokens[i][j].type == "label"){
+                    alone.name = AllTokens[i][j].name;
+                    alone.disp = 255;
+                    MassOfUser.push_back(alone);
+                }
+                if((AllTokens[i][j].type == "user id or undifined") && (AllTokens[i][j+1].type == "directive")){
+                    alone.name = AllTokens[i][j].name;
+                    alone.disp = 255;
+                    MassOfUser.push_back(alone);
+                }
+        }
+    }
+    sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
+}
+
 void LoadFromFile(const char* file) {
     string line;
     string solo = "";
     int indicator_of_rows = 0;
     int indicator_of_lexems = 0;
     lexeme one;
-
     vector<lexeme>one_row;
     ifstream in_for_numbers(file);
     ofstream out;
@@ -61,6 +85,7 @@ void LoadFromFile(const char* file) {
             }
         }
     }
+
 
     for (int i = 0; i < AllTokens.size(); i++) {
         struct_of_sentence alone;
@@ -123,6 +148,7 @@ void IdentifyLexeme(lexeme& one, string line, int indicator_of_rows, int indicat
         one.type = "user id or undifined";
         one.type_for_check = "mem";
     }
+
 }
 
 void CreateSyntax(vector<lexeme> AllTokens, struct_of_sentence& alone) {
@@ -166,64 +192,3 @@ void CreateSyntax(vector<lexeme> AllTokens, struct_of_sentence& alone) {
     }
 }
 
-void Displacement(const char* file) {
-    //int Displace = -1;
-   //int Displace_s = 0;
-    //string line;
-    //int l = 0;
-    //ifstream in(file);
-    //int i = 0;
-    //if (in.is_open()) {
-       /* while (getline(in, line)) {
-            int i_prev = i;
-            //cout << Hex(Displace) << "\t\t\t" << line << endl;
-            for (int j = 0; j < AllTokens[i].size(); j++) {
-                if (AllTokens[i][j].type == "label" && j == 0) {
-                    if (AllTokens[i][j + 1].name == "segment") {
-                        Displace = 0;
-                        Displace_s = Displace;
-                        //cout << Hex(Displace) << "\t\t\t" << line << endl;
-                        i++;
-                        break;
-                    }
-
-                }
-                if (AllTokens[i][j].name == "db") {
-                    if (AllTokens[i][j + 1].type == "hexadecimal const") {
-                        //cout << Hex(Displace) << "\t\t\t" << line << endl;
-                        Displace++;
-                        i++;
-                        break;
-                    }
-                    if (AllTokens[i][j + 1].type == "const char") {
-                        //cout << Hex(Displace) << "\t\t\t" << line << endl;
-                        for (int it = 0; it < AllTokens[i][j + 1].name.size() - 2; it++) {
-                            Displace++;
-                        }
-                        // cout << Displace << ' ';
-                        i++;
-                        //cout << Hex(Displace) << "\t\t\t" << line << endl;
-                        break;
-                    }
-                }
-                if (AllTokens[i][j].name == "dd") {
-                    Displace += 4;
-                    i++;
-                    break;
-                }
-                if (AllTokens[i][j].name == "ends") {
-                    DataSize = Displace;
-                    Displace = -1;
-                    i++;
-                    break;
-                }
-            }
-            if (i_prev == i)i++;
-            //cout << Displace_s << ' ';
-            cout << Hex(Displace_s) << "\t\t" << line << endl;
-            Displace_s = Displace;
-            //i++;
-            //cout << Hex(DataSize);
-        }
-    }*/
-}
