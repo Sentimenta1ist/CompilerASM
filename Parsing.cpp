@@ -126,6 +126,8 @@ void IdentifyLexeme(lexeme& one, string line, int indicator_of_rows, int indicat
         }
         if (flag_charconst) {
             one.name = line;
+            one.name.erase(0,1);
+            one.name.erase(one.name.size() - 1, 1);
             one.type =constChar;
 
             return;
@@ -164,4 +166,3 @@ void IdentifyLexeme(lexeme& one, string line, int indicator_of_rows, int indicat
         one.type = userId;
     }
 }
-

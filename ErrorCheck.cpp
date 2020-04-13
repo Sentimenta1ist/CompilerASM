@@ -11,10 +11,10 @@ vector<ErrorOfOperands> Accesed{
         {"jnz",  "-1",   "-1"},
 };
 
-bool Errortest(vector<lexeme> example){
+bool Errortest(vector<lexeme> example) {
     int flag = 0;
-    for(int i = 0; i < example.size(); i++){
-        if(example[i].type == userId) {
+    for (int i = 0; i < example.size(); i++) {
+        if (example[i].type == userId) {
             flag = 0;
             for (int j = 0; j < MassOfUser.size(); j++) {
                 if (example[i].name == MassOfUser[j].name) {
@@ -22,13 +22,12 @@ bool Errortest(vector<lexeme> example){
                     break;
                 }
             }
-            if(flag == 0) return true;
+            if (flag == 0) {
+                return true;
+            }
+
         }
     }
-
-
-
-
     return false;
 }
 

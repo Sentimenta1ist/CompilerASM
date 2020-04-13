@@ -3,6 +3,7 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
+#include <math.h>
 #include <vector>
 #include <stdio.h>
 #include <algorithm>
@@ -21,6 +22,7 @@
 #define constHex "constHex"
 #define singleLexeme "single lexeme"
 #define label "label"
+#define directiveIf "directiveIF_ENDIF"
 #define nonOp "nonOperand"
 #define delimeterOp ","
 
@@ -47,14 +49,6 @@ struct struct_of_sentence {
     int amount_of_operand2 = -1;
 };
 
-struct machine_code_lexeme{
-    string name;
-    int opcode;
-    int mod_r_m;
-    int sib;
-    int disp;
-
-};
 
 struct User{
     string name;
@@ -62,7 +56,6 @@ struct User{
 
 };
 
-extern vector<machine_code_lexeme> Machine_code;
 extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
