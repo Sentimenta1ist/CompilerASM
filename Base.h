@@ -8,6 +8,22 @@
 #include <algorithm>
 #include <regex>
 
+#define reg "reg"
+#define instruction "instruction"
+#define undefined "undefined"
+#define directive "directive"
+#define labelCode "labelCode"
+#define segmentWord "segmentWord"
+#define registerSeg "registerSeg"
+#define userId "userId"
+#define constChar "constChar"
+#define constDecimal "constDecimal"
+#define constHex "constHex"
+#define singleLexeme "single lexeme"
+#define label "label"
+#define nonOp "nonOperand"
+#define delimeterOp ","
+
 using namespace std;
 
 struct lexeme {
@@ -16,8 +32,8 @@ struct lexeme {
     string name;
     int length;
     string type;
-    string type_for_check;
-    int label = -1;
+    //string type_for_check;
+    //int label = -1;
 };
 
 struct struct_of_sentence {
@@ -50,7 +66,7 @@ extern vector<machine_code_lexeme> Machine_code;
 extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
-extern vector<pair<string, string>> DictionaryOfTokens;
+extern vector<pair<string, vector<string>>> DictionaryOfTokens;
 
 extern int DataSize;
 extern int DispMain;

@@ -1,10 +1,17 @@
-#include "Parsing.h"
 #include "ErrorCheck.h"
+#include "FirstSecondStage.h"
 
 int main() {
 
     LoadFromFile("test.asm");
+
+    LexemeSyntax("test.asm" , 0);
+
+
+
+
     FillMassOfUsers();
+    LexemeSyntax("test.asm" , 1);
 
     for(int i = 0; i < AllTokens.size(); i++){
         if(AllTokens[i].empty())continue;

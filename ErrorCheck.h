@@ -3,7 +3,7 @@
 #include "Addition.h"
 
 struct ErrorOfOperands{
-    string instruction;
+    string instr;
     string operand1;
     string operand2;
 };

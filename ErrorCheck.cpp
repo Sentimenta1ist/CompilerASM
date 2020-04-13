@@ -1,7 +1,7 @@
 #include "ErrorCheck.h"
 
 vector<ErrorOfOperands> Accesed{
-        {"stosd","-1",   "-1"},
+        {"stosd","-1",  "-1"},
         {"push", "const","-"},
         {"cmp",  "reg",  "reg"},
         {"test", "reg",  "mem"},
@@ -14,7 +14,7 @@ vector<ErrorOfOperands> Accesed{
 bool Errortest(vector<lexeme> example){
     int flag = 0;
     for(int i = 0; i < example.size(); i++){
-        if(example[i].type == "user id or undifined") {
+        if(example[i].type == userId) {
             flag = 0;
             for (int j = 0; j < MassOfUser.size(); j++) {
                 if (example[i].name == MassOfUser[j].name) {

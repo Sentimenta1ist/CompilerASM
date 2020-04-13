@@ -14,7 +14,7 @@ label1:
 	dec 	eax
 	push	100
 	mov	esi, 1
-	test	eax,FS:Vd[esi*2] 
+	test	eax,FS:Vd[esi*2]
 	bts	Vd[esi*4], eax
 	add	String1[esi*2], 1
 	IF Times1
@@ -33,4 +33,3 @@ lend:
 	and eax,tbx
 Code 	ends
 END
-

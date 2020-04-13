@@ -3,4 +3,4 @@ project(coursework)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(coursework main.cpp Addition.cpp Addition.h Parsing.h Parsing.cpp Base.h Base.cpp ErrorCheck.cpp ErrorCheck.h)
+add_executable(coursework main.cpp Addition.cpp Addition.h Parsing.h Parsing.cpp Base.h Base.cpp ErrorCheck.cpp ErrorCheck.h FirstSecondStage.cpp FirstSecondStage.h)

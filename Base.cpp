@@ -1,13 +1,4 @@
-//
-// Created by sentimental on 08.04.20.
-//
-
 #include "Base.h"
-
-
-//smth nEW
-//AGA
-
 
 int DataSize = 0;
 int DispMain = 0;
@@ -18,34 +9,29 @@ vector<struct_of_sentence> AllStruct;
 
 vector<User> MassOfUser;
 
-vector<pair<string, string>> DictionaryOfTokens = {{"data",    "label_d"},
-                                                   {"segment", "segmentword"},
-                                                   {"db",      "directive"},
-                                                   {"dd",      "directive"},
-                                                   {"equ",     "directive"},
-                                                   {"ends",    "segmentword"},
-                                                   {"code",    "label_c"},
-                                                   {"jz",      "instruction"},
-                                                   {"mov",     "instruction"},
-                                                   {"eax",     "register 32"},
-                                                   {"dec",     "instruction"},
-                                                   {"push",    "instruction"},
-                                                   {"esi",     "register 32"},
-                                                   {"test",    "instruction"},
-                                                   {"fs",      "id_segment_register"},
-                                                   {"bts",     "instruction"},
-                                                   {"add",     "instruction"},
-                                                   {"if",      "directiveIF_ENDIF"},
-                                                   {"endif",   "directiveIF_ENDIF"},
-                                                   {"edi",     "register 32"},
-                                                   {"stosd",   "instruction"},
-                                                   {"cmp",     "instruction"},
-                                                   {"end",     "segmentword"}};
+vector<pair<string, vector<string>>> DictionaryOfTokens ={
+         {reg,
+                 {"eax", "ebx", "ecx",  "edx",  "esi", "edi", "ebp", "al", "bl",    "dl",  "cl"}},
+
+         {instruction,
+                 {"mov", "dec", "test", "push", "bts", "jz", "stosd", "add", "cmp"}},
+
+         {directive,
+                 {"db", "dd", "dq", "equ", "if", "endif"}},
+
+         {labelCode,
+                 {"data", "code"}},
+
+         {segmentWord,
+                 {"segment", "ends", "end"}},
+
+         {registerSeg,
+                 {"ds", "cs", "gs", "fs", "bs", "ss"}}};
+
 
 vector<machine_code_lexeme> Machine_code{
-        {"add",0b1000,0,0,0 },
-        {"mov",0xF1,0,0,0 },
-        {"dec",0xF4,0,0,0 },
-        {"and",0xF5,0,0,0 },
-        {"cmp",0xF6,0,0,0 }
+        {"add",0xFF,0,0,0 },
+        {"push",0x68,0,0,0 },
+        {"cmp",0x83,0,0,0 },
+        {"test",0xA9,0,0,0 }
 };
