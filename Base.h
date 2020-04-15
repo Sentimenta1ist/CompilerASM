@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <regex>
 
+//semantic
 #define reg "reg"
 #define instruction "instruction"
 #define undefined "undefined"
@@ -16,15 +17,18 @@
 #define labelCode "labelCode"
 #define segmentWord "segmentWord"
 #define registerSeg "registerSeg"
-#define userId "userId"
+#define directiveIf "directiveIF_ENDIF"
+
+//users
 #define constChar "constChar"
 #define constDecimal "constDecimal"
 #define constHex "constHex"
 #define singleLexeme "single lexeme"
 #define label "label"
-#define directiveIf "directiveIF_ENDIF"
+#define userId "userId"
 #define nonOp "nonOperand"
-#define delimeterOp ","
+#define delimeter ","
+#define CONST constChar||constDecimal||constHex
 
 using namespace std;
 

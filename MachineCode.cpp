@@ -14,7 +14,7 @@ vector<MachineCodeInstructionStruct> MachineCodeInstruction{
 
 vector<MachineCodeDirectiveStruct> MachineCodeDirective{
         {"db",0,1},
-        {"dd",0,8},
+        {"dd",0,4},
         {"equ",0,0}
 };
 
@@ -48,6 +48,8 @@ int Displacement(string MachineCode){
 }
 
 void createAllLst(){
+
+
     int disp = 0;
     for(int i = 0; i < AllTokens.size();i++) {
         string result = "    ";

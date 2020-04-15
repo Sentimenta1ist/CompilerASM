@@ -25,7 +25,7 @@ label1:
 		mov	edi, String1
 	ENDIF
 lend:
-	stosd
+	stosd eax
 	cmp	eax, esi
 	test 	bh,vd[esi*4]
 	jz label1

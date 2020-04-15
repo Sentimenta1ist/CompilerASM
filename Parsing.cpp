@@ -22,6 +22,7 @@ void FillMassOfUsers(){
                 }
         }
     }
+
     sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
 }
 

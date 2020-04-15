@@ -1,6 +1,7 @@
 #pragma once
 #include "Base.h"
 #include "Addition.h"
+#include "FirstSecondStage.h"
 
 struct ErrorOfOperands{
     string instr;
@@ -10,6 +11,7 @@ struct ErrorOfOperands{
 
 
 extern vector<ErrorOfOperands> Accesed;
-bool Errortest(vector<lexeme> example);
-void Diplacement(vector<lexeme> example);
+bool CheckForUndefined(vector<lexeme> example);
 
+bool CheckForOperands(vector<lexeme> example);
+void check();

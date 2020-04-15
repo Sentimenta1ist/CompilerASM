@@ -44,7 +44,7 @@ string Hex(int number, int size){
         }
         result.insert(0, "=");
     }
-    for(int i = result.size(); i < size; i++){
+    for(int i = result.size(); i < size * 2; i++){
         result.insert(0, "0");
     }
     return result;
@@ -75,6 +75,7 @@ int Dec(lexeme constName){
     int result = 0;
     if(constName.type == constDecimal) return stoi(constName.name);
     if(constName.type == constHex)  {
+        //if(constName.name[0])
         for(int i = constName.name.size() - 2; i >= 0 ; i--){
             for(int j = 0; j < dictionaryHex.size(); j++){
                 if(dictionaryHex[j].second == toupper(constName.name[i])){

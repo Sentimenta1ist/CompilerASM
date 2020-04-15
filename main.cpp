@@ -4,15 +4,19 @@
 int main() {
 
     LoadFromFile("test.asm");
-
     LexemeSyntax("test.asm" , 0);
 
+    for(int i = 0; i < AllTokens.size(); i++){
 
 
-    lexeme test;
-    test.name = "f1273h";
-    test.type = constHex;
-    createAllLst();
+
+
+        if(CheckForOperands(AllTokens[i])) cout << " <-0 *error*";
+
+
+    }
+
+    //createAllLst();
 //
 //    for(int i = 0; i < AllTokens.size(); i++){
 //        if(AllTokens[i].empty())continue;

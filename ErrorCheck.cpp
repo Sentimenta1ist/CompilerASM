@@ -3,15 +3,15 @@
 vector<ErrorOfOperands> Accesed{
         {"stosd","-1",  "-1"},
         {"push", "const","-"},
-        {"cmp",  "reg",  "reg"},
-        {"test", "reg",  "mem"},
+        {"cmp",  reg,  "reg"},
+        {"test", reg,  "mem"},
         {"bts",  "mem",  "reg"},
-        {"mov",  "reg",  "mem"},
-        {"add",  "mem",  "const"},
-        {"jnz",  "-1",   "-1"},
+        {"mov",  reg,  "mem"},
+        {"add",  "mem",  reg},
+        {"jnz",  "mem",   "-1"},
 };
 
-bool Errortest(vector<lexeme> example) {
+bool CheckForUndefined(vector<lexeme> example) {
     int flag = 0;
     for (int i = 0; i < example.size(); i++) {
         if (example[i].type == userId) {
@@ -22,6 +22,7 @@ bool Errortest(vector<lexeme> example) {
                     break;
                 }
             }
+            //example[i].type = undefined;
             if (flag == 0) {
                 return true;
             }
@@ -31,11 +32,22 @@ bool Errortest(vector<lexeme> example) {
     return false;
 }
 
-void Diplacement(vector<lexeme> example) {
-    if(Errortest(example)){
-        cout << "* error! *      |" ;
-        return;
+bool CheckForOperands(vector<lexeme> example){        //return true if n operand with instruction error
+    if(example.empty()) return false;
+    if(example[0].type != instruction) return false;
+    for(auto it:example) cout << it.name << ' ';
+    cout << endl;
+    struct_of_sentence alone;
+
+    CreateSyntax(example, alone);
+    for(auto it:Accesed){
+        if(it.instr == example[0].name){
+            if((alone.number_of_operand1 != -1)&&(it.operand1 == "-1"))return false;
+        }
     }
-    cout << "                |" ;
-    DispMain++;
+
+    return false;
+}
+void check(){
+    cout << "work";
 }
