@@ -14,7 +14,7 @@
 #define instruction "instruction"
 #define undefined "undefined"
 #define directive "directive"
-#define labelCode "labelCode"
+#define label "label"
 #define segmentWord "segmentWord"
 #define registerSeg "registerSeg"
 #define directiveIf "directiveIF_ENDIF"
@@ -53,6 +53,10 @@ struct struct_of_sentence {
     int amount_of_operand2 = -1;
 };
 
+struct OneSegment{
+    int size;
+    string name;
+};
 
 struct User{
     string name;
@@ -64,6 +68,6 @@ extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, vector<string>>> DictionaryOfTokens;
+extern vector<OneSegment> AllSegments;
 
-extern int DataSize;
 extern int DispMain;

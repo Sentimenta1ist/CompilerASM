@@ -24,9 +24,11 @@ struct MachineCodeDirectiveStruct{
 extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
 extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 
-
+string MachineCodeForInstruction(vector <lexeme>);
+string MachineCodeForDirective(vector <lexeme>);
 string MachineCodeForOneLine( vector<lexeme> );
 int Displacement(string MachineCode);
-void createAllLst();
+void createAllLst(char * );
+
 
 #endif //COURSEWORK_MACHINECODE_H

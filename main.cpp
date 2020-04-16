@@ -4,18 +4,13 @@
 int main() {
 
     LoadFromFile("test.asm");
-    LexemeSyntax("test.asm" , 0);
+    LexemeSyntax("test.asm" , 1);
+    //cout << Displacement("");
 
-    for(int i = 0; i < AllTokens.size(); i++){
-
-
-
-
-        if(CheckForOperands(AllTokens[i])) cout << " <-0 *error*";
-
-
+    createAllLst("test.asm");
+    for(int i = 0; i < AllSegments.size(); i++){
+        cout << "name = " << AllSegments[i].name << "; size = " << HexForDisp(AllSegments[i].size) << endl;
     }
-
     //createAllLst();
 //
 //    for(int i = 0; i < AllTokens.size(); i++){

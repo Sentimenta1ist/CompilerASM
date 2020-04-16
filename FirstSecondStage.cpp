@@ -16,7 +16,7 @@ void CreateSyntax(vector<lexeme> Tokens, struct_of_sentence& alone) {
             alone.number_of_label = Tokens[i].number_of_lexem;
             continue;
         }
-        if ((Tokens[i].type == label)||(Tokens[i].type == labelCode)) {
+        if (Tokens[i].type == label) {
             alone.number_of_label = Tokens[i].number_of_lexem;
             continue;
         }

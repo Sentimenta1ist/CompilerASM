@@ -1,6 +1,6 @@
 #include "Base.h"
 
-int DataSize = 0;
+
 int DispMain = 0;
 
 vector<vector<lexeme>> AllTokens;
@@ -8,6 +8,8 @@ vector<vector<lexeme>> AllTokens;
 vector<struct_of_sentence> AllStruct;
 
 vector<User> MassOfUser;
+
+vector<OneSegment> AllSegments;
 
 vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {reg,
@@ -22,7 +24,7 @@ vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {directiveIf,
                  {"if", "endif"}},
 
-         {labelCode,
+         {label,
                  {"data", "code"}},
 
          {segmentWord,

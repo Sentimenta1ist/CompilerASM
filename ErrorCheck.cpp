@@ -40,14 +40,15 @@ bool CheckForOperands(vector<lexeme> example){        //return true if n operand
     struct_of_sentence alone;
 
     CreateSyntax(example, alone);
-    for(auto it:Accesed){
-        if(it.instr == example[0].name){
-            if((alone.number_of_operand1 != -1)&&(it.operand1 == "-1"))return false;
-        }
-    }
+//    for(auto it:Accesed){
+//        if(it.instr == example[0].name){
+//            if((alone.number_of_operand1 != -1)&&(it.operand1 == "-1"))return false;
+//        }
+//    }
 
     return false;
 }
+
 void check(){
     cout << "work";
 }

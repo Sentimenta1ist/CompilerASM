@@ -5,3 +5,4 @@
 
 void LexemeSyntax(const char*, bool );
 void CreateSyntax(vector<lexeme>, struct_of_sentence &alone);
+
