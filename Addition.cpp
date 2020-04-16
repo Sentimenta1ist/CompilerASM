@@ -86,3 +86,17 @@ int Dec(lexeme constName){
     }
     return result;
 }
+
+string IdentifyOperand(string example){
+    if(example.empty()) return "-1";
+    for(auto table: RegistersTable){
+        if(table.reg32Name == example) return "reg32";
+        if(table.reg8Name == example) return "reg8";
+    }
+    /*
+     *
+     *must identify
+     */
+
+    return "mem";
+}

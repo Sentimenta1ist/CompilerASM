@@ -1,6 +1,6 @@
 #include "ErrorCheck.h"
 
-vector<ErrorOfOperands> Accesed{
+vector<ErrorOfOperands> Accessed{
         {"stosd","-1",  "-1"},
         {"push", "const","-"},
         {"cmp",  reg,  "reg"},
@@ -12,6 +12,7 @@ vector<ErrorOfOperands> Accesed{
 };
 
 bool CheckForUndefined(vector<lexeme> example) {
+
     int flag = 0;
     for (int i = 0; i < example.size(); i++) {
         if (example[i].type == userId) {
@@ -33,21 +34,15 @@ bool CheckForUndefined(vector<lexeme> example) {
 }
 
 bool CheckForOperands(vector<lexeme> example){        //return true if n operand with instruction error
-    if(example.empty()) return false;
-    if(example[0].type != instruction) return false;
-    for(auto it:example) cout << it.name << ' ';
-    cout << endl;
-    struct_of_sentence alone;
-
-    CreateSyntax(example, alone);
-//    for(auto it:Accesed){
-//        if(it.instr == example[0].name){
-//            if((alone.number_of_operand1 != -1)&&(it.operand1 == "-1"))return false;
-//        }
-//    }
-
     return false;
 }
+
+bool FullCheckOFLine(vector <lexeme> line){
+    if(CheckForOperands(line))return true;
+    if(CheckForUndefined(line)) return true;
+    return false;
+}
+
 
 void check(){
     cout << "work";

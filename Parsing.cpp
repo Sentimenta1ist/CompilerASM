@@ -12,17 +12,16 @@ void FillMassOfUsers(){
         for(int j = 0 ; j < AllTokens[i].size() - 1;j++){
                 if(AllTokens[i][j].type == label){
                     alone.name = AllTokens[i][j].name;
-                    alone.disp = 255;
+                    alone.size = 255;
                     MassOfUser.push_back(alone);
                 }
                 if((AllTokens[i][j].type == userId) && (AllTokens[i][j+1].type == directive)){
                     alone.name = AllTokens[i][j].name;
-                    alone.disp = 255;
+                    alone.size = 255;
                     MassOfUser.push_back(alone);
                 }
         }
     }
-
     sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
 }
 

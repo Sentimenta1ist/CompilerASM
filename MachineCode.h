@@ -24,6 +24,8 @@ struct MachineCodeDirectiveStruct{
 extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
 extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 
+LineInstruction CreateOperands(vector<lexeme>);
+
 string MachineCodeForInstruction(vector <lexeme>);
 string MachineCodeForDirective(vector <lexeme>);
 string MachineCodeForOneLine( vector<lexeme> );

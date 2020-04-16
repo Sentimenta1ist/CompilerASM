@@ -14,7 +14,7 @@
 #define instruction "instruction"
 #define undefined "undefined"
 #define directive "directive"
-#define label "label"
+#define labelSeg "labelSegment"
 #define segmentWord "segmentWord"
 #define registerSeg "registerSeg"
 #define directiveIf "directiveIF_ENDIF"
@@ -26,22 +26,38 @@
 #define singleLexeme "single lexeme"
 #define label "label"
 #define userId "userId"
-#define nonOp "nonOperand"
-#define delimeter ","
-#define CONST constChar||constDecimal||constHex
+
+//for program
+#define errorMessage "*  error!!!  *"
+
+#define mem32 "mem32"
+#define const32 "const32"
+#define reg32 "reg32"
+
+#define mem8 "mem8"
+#define const8 "const8"
+#define reg8 "reg8"
+
+#define nonOperand = "-1"
 
 using namespace std;
 
+/*
+ *struct of one lexeme
+ * most useful is name and type
+ */
 struct lexeme {
     int number_of_lexem;
     int number_of_row;
     string name;
     int length;
     string type;
-    //string type_for_check;
-    //int label = -1;
 };
 
+/*
+ * struct for sentences
+ * (first stage of work)
+ */
 struct struct_of_sentence {
     int number_of_row = -1;
     int number_of_label = -1;
@@ -53,15 +69,37 @@ struct struct_of_sentence {
     int amount_of_operand2 = -1;
 };
 
+/*
+ * struct for one segment
+ */
 struct OneSegment{
     int size;
     string name;
 };
 
+/*
+ * struct for one user id
+ */
 struct User{
     string name;
-    int disp;
+    int size;
+};
 
+/*
+ * struct for Register
+ */
+struct registerValue{
+    string reg32Name;
+    string reg8Name;
+    string value;
+};
+
+struct LineInstruction{
+    string instr;
+    string operand1;
+    string operand2;
+    string TypeOperand1;
+    string TypeOperand2;
 };
 
 extern vector<User> MassOfUser;
@@ -69,5 +107,9 @@ extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, vector<string>>> DictionaryOfTokens;
 extern vector<OneSegment> AllSegments;
+extern vector<registerValue> RegistersTable;
 
+/*
+ * main displacement in program
+ */
 extern int DispMain;

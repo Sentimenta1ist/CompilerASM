@@ -11,6 +11,14 @@ vector<User> MassOfUser;
 
 vector<OneSegment> AllSegments;
 
+
+/*
+ * Dictionary of token
+ * If u wanna add instruction to "compi":
+ *      1) add to DictionaryOfTokens
+ *      2) add to MachineCodeInstruction with another data
+ *      3) add to Accessed vector with operands that you want
+ */
 vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {reg,
                  {"eax", "ebx", "ecx",  "edx",  "esi", "edi", "ebp", "al", "bl",    "dl",  "cl"}},
@@ -24,7 +32,7 @@ vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {directiveIf,
                  {"if", "endif"}},
 
-         {label,
+         {labelSeg,
                  {"data", "code"}},
 
          {segmentWord,
@@ -32,3 +40,13 @@ vector<pair<string, vector<string>>> DictionaryOfTokens ={
 
          {registerSeg,
                  {"ds", "cs", "gs", "fs", "bs", "ss"}}};
+
+vector<registerValue> RegistersTable = {
+        {"eax","al","000"},
+        {"ecx","cl","001"},
+        {"edx","dl","010"},
+        {"ebx","bl","011"},
+        {"esp","ah","100"},
+        {"ebp","ch","101"},
+        {"esi","dh","110"},
+        {"edi","bh","111"}};

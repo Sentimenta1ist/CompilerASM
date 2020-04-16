@@ -2,6 +2,7 @@
 #include "Base.h"
 #include "Addition.h"
 #include "FirstSecondStage.h"
+//#include "Parsing.h"
 
 struct ErrorOfOperands{
     string instr;
@@ -10,8 +11,10 @@ struct ErrorOfOperands{
 };
 
 
-extern vector<ErrorOfOperands> Accesed;
-bool CheckForUndefined(vector<lexeme> example);
+extern vector<ErrorOfOperands> Accessed;
 
-bool CheckForOperands(vector<lexeme> example);
+bool CheckForUndefined(vector<lexeme> );
+bool CheckForOperands(vector<lexeme> );
+bool FullCheckOFLine(vector <lexeme>);
+
 void check();

@@ -29,7 +29,5 @@ lend:
 	cmp	eax, esi
 	test 	bh,vd[esi*4]
 	jz label1
-	add al,bl
-	and eax,tbx
 Code 	ends
 END
