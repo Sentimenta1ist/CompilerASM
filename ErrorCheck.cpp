@@ -1,14 +1,22 @@
 #include "ErrorCheck.h"
 
 vector<ErrorOfOperands> Accessed{
-        {"stosd","-1",  "-1"},
-        {"push", "const","-"},
-        {"cmp",  reg,  "reg"},
-        {"test", reg,  "mem"},
-        {"bts",  "mem",  "reg"},
-        {"mov",  reg,  "mem"},
-        {"add",  "mem",  reg},
-        {"jnz",  "mem",   "-1"},
+        {"stosd",nonOperand,  nonOperand},
+        {"push", const32,nonOperand},
+        {"cmp",  reg32,  reg32},
+        {"test", reg32,  mem32},
+        {"bts",  mem32,  reg32},
+        {"mov",  reg32,  const32},
+        {"add",  mem32,  const32},
+        {"jz",  mem32,nonOperand },
+
+        {"push", const8,nonOperand},
+        {"cmp",  reg8,  reg8},
+        {"test", reg8,  mem8},
+        {"bts",  mem8,  reg8},
+        {"mov",  reg8,  const8},
+        {"add",  mem8,  const8},
+        {"jz",  mem8,nonOperand }
 };
 
 bool CheckForUndefined(vector<lexeme> example) {

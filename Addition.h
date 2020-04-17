@@ -9,4 +9,4 @@ string HexForDisp(int);
 string Hex(string);
 string Hex(int , int);
 
-string IdentifyOperand(string);
+string IdentifyOperand(string example);

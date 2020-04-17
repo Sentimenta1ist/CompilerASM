@@ -7,7 +7,7 @@ vector<vector<lexeme>> AllTokens;
 
 vector<struct_of_sentence> AllStruct;
 
-vector<User> MassOfUser;
+vector<lexeme> MassOfUser;
 
 vector<OneSegment> AllSegments;
 
@@ -26,6 +26,9 @@ vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {instruction,
                  {"mov", "dec", "test", "push", "bts", "jz", "stosd", "add", "cmp"}},
 
+         {JumpInstr,
+                 {"jz"}},
+
          {directive,
                  {"db", "dd", "equ", "if", "endif"}},
 
@@ -42,11 +45,11 @@ vector<pair<string, vector<string>>> DictionaryOfTokens ={
                  {"ds", "cs", "gs", "fs", "bs", "ss"}}};
 
 vector<registerValue> RegistersTable = {
-        {"eax","al","000"},
-        {"ecx","cl","001"},
-        {"edx","dl","010"},
-        {"ebx","bl","011"},
-        {"esp","ah","100"},
-        {"ebp","ch","101"},
-        {"esi","dh","110"},
-        {"edi","bh","111"}};
+        {"eax","al",0b000},
+        {"ecx","cl",0b001},
+        {"edx","dl",0b010},
+        {"ebx","bl",0b011},
+        {"esp","ah",0b100},
+        {"ebp","ch",0b101},
+        {"esi","dh",0b110},
+        {"edi","bh",0b111}};

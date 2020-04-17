@@ -1,28 +1,27 @@
 #include "Parsing.h"
 
-bool compareByLength(const User &a, const User &b)
-{
-    return a.name.size() < b.name.size();
-}
+
 
 void FillMassOfUsers(){
-    User alone;
+    lexeme alone;
     for(int i = 0; i < AllTokens.size(); i++){
         if(AllTokens[i].empty())continue;
         for(int j = 0 ; j < AllTokens[i].size() - 1;j++){
                 if(AllTokens[i][j].type == label){
                     alone.name = AllTokens[i][j].name;
-                    alone.size = 255;
+                    alone.type =  AllTokens[i][AllTokens[i].size() - 2].type;
+                    alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
                     MassOfUser.push_back(alone);
                 }
                 if((AllTokens[i][j].type == userId) && (AllTokens[i][j+1].type == directive)){
                     alone.name = AllTokens[i][j].name;
-                    alone.size = 255;
+                    alone.type =  AllTokens[i][AllTokens[i].size() - 2].type;
+                    alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
                     MassOfUser.push_back(alone);
                 }
         }
     }
-    sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
+    //sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
 }
 
 void LoadFromFile(const char* file) {

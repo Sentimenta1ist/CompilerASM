@@ -24,6 +24,7 @@
 #define constDecimal "constDecimal"
 #define constHex "constHex"
 #define singleLexeme "single lexeme"
+#define JumpInstr "instruction jump"
 #define label "label"
 #define userId "userId"
 
@@ -38,7 +39,7 @@
 #define const8 "const8"
 #define reg8 "reg8"
 
-#define nonOperand = "-1"
+#define nonOperand  "-1"
 
 using namespace std;
 
@@ -91,7 +92,7 @@ struct User{
 struct registerValue{
     string reg32Name;
     string reg8Name;
-    string value;
+    int value;
 };
 
 struct LineInstruction{
@@ -102,7 +103,7 @@ struct LineInstruction{
     string TypeOperand2;
 };
 
-extern vector<User> MassOfUser;
+extern vector<lexeme> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, vector<string>>> DictionaryOfTokens;

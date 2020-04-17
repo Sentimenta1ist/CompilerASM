@@ -9,7 +9,6 @@ Data 	ends
 Code Segment
 label1:
 	jz	lend
-	add	vb[ebp*8],56h
 	mov	eax, Vd
 	dec 	eax
 	push	100
@@ -25,9 +24,8 @@ label1:
 		mov	edi, String1
 	ENDIF
 lend:
-	stosd eax
+	stosd
 	cmp	eax, esi
-	test 	bh,vd[esi*4]
 	jz label1
 Code 	ends
 END

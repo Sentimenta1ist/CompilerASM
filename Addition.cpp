@@ -88,15 +88,27 @@ int Dec(lexeme constName){
 }
 
 string IdentifyOperand(string example){
+
     if(example.empty()) return "-1";
     for(auto table: RegistersTable){
         if(table.reg32Name == example) return "reg32";
         if(table.reg8Name == example) return "reg8";
     }
+
+    //check for hex const
+    if((isdigit(example[0]))&&(example[example.size() - 1] == 'h')){
+        return "const8";
+    }
+
+    //check for decimal const
+    int flagOfDecimal = 0;
+    for( auto it:example){
+        if(!isdigit(it))flagOfDecimal = 1;
+    }
+    if(flagOfDecimal == 0)return "const8";
     /*
-     *
      *must identify
      */
 
-    return "mem";
+    return "mem32";
 }

@@ -1,15 +1,15 @@
 #include "MachineCode.h"
 
 vector<MachineCodeInstructionStruct> MachineCodeInstruction{
-        {"add",0xFF,0,0,0 },
-        {"push",0x68,0,0,0 },
-        {"cmp",0x83,0,0,0 },
-        {"test",0x85,0,0,0 },
-        {"stosd",0xA9,0,0,0 },
-        {"mov",0xA9,0,0,0 },
-        {"dec",0xA9,0,0,0 },
-        {"bts",0xA9,0,0,0 },
-        {"jz",0xA9,0,0,0 }
+        {0,"add",0x00,0,0,0 },
+        {0,"push",0x68,0,0,0 },
+        {0,"cmp",0x83,0,0,0 },
+        {0,"test",0x85,0,0,0 },
+        {0,"stosd",0xA9,0,0,0 },
+        {0,"mov",0xA9,0,0,0 },
+        {0,"dec",0xA9,0,0,0 },
+        {0,"bts",0xA9,0,0,0 },
+        {0,"jz",0xA9,0,0,0 }
 };
 
 vector<MachineCodeDirectiveStruct> MachineCodeDirective{
@@ -22,11 +22,13 @@ vector<MachineCodeDirectiveStruct> MachineCodeDirective{
 /*
  * Func for create operands (only for line with instruction!!!)
  */
-LineInstruction CreateOperands(vector<lexeme> OneLine){
-    LineInstruction alone;
+void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone){
+
     alone.instr = OneLine[0].name;
     alone.operand1 = "";
     alone.operand2 = "";
+    alone.TypeOperand2 = "";
+    alone.TypeOperand1 = "";
     int flagSecondOperand = 0;
     for(int i = 1; i < OneLine.size(); i++){
         if(OneLine[i].name == ","){
@@ -40,8 +42,19 @@ LineInstruction CreateOperands(vector<lexeme> OneLine){
         alone.operand1 += OneLine[i].name;
     }
 
+    alone.TypeOperand1 = IdentifyOperand(alone.operand1);
+    alone.TypeOperand2 = IdentifyOperand(alone.operand2);
 
-    return alone;
+}
+
+string DispOneLine(LineInstruction alone){
+    string res = "";
+    if(alone.TypeOperand1 == mem32){
+        for(auto it: MassOfUser){
+            if(alone.operand1.find(it.name)) return Hex(it.length);
+        }
+    }
+    return res;
 }
 
 /*
@@ -50,22 +63,17 @@ LineInstruction CreateOperands(vector<lexeme> OneLine){
 string MachineCodeForInstruction(vector<lexeme> OneLine){
     if(OneLine[0].type != instruction)return "";
     string MachineCode = "";
-    LineInstruction alone = CreateOperands(OneLine);
-    MachineCode += "ins:" + alone.instr + " op1:" + alone.operand1 + " op2:" +alone.operand2;
-    return MachineCode;
+
+    LineInstruction alone;
+    CreateOperandsForInstruction(OneLine,alone);
 
 
 
 
+    MachineCode += DispOneLine(alone);
 
 
 
-
-    for(auto dicLexeme:MachineCodeInstruction){
-        if(OneLine[0].name == dicLexeme.name){
-            MachineCode += Hex(dicLexeme.opcode);
-        }
-    }
     return MachineCode;
 }
 
@@ -131,9 +139,12 @@ void createAllLst( char * inputFile){
         for (int i = 0; i < AllTokens.size(); i++) {
             getline(file,lineInFile);
             string result = "    ";
-            result += MachineCodeForOneLine(AllTokens[i]);
+            string MachineCodeOne = MachineCodeForOneLine(AllTokens[i]);
+
+
+            result += MachineCodeOne;
             result.insert(0, HexForDisp(DispMain));
-            DispMain += Displacement(MachineCodeForOneLine(AllTokens[i]));
+            DispMain += Displacement(MachineCodeOne);
             for (int k = result.size(); k < 40; k++) {
                 result += ' ';
             }

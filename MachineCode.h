@@ -6,6 +6,7 @@
 #include "ErrorCheck.h"
 
 struct MachineCodeInstructionStruct{
+    int prefix;
     string name;
     int opcode;
     int mod_r_m;
@@ -24,7 +25,7 @@ struct MachineCodeDirectiveStruct{
 extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
 extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 
-LineInstruction CreateOperands(vector<lexeme>);
+void CreateOperandsForInstruction(vector<lexeme>, LineInstruction &);
 
 string MachineCodeForInstruction(vector <lexeme>);
 string MachineCodeForDirective(vector <lexeme>);
