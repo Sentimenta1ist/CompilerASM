@@ -18,12 +18,13 @@ vector<MachineCodeDirectiveStruct> MachineCodeDirective{
         {"equ",0,0}
 };
 
-
+string JccMachineCode(){
+    return "74";
+}
 /*
  * Func for create operands (only for line with instruction!!!)
  */
 void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone){
-
     alone.instr = OneLine[0].name;
     alone.operand1 = "";
     alone.operand2 = "";
@@ -41,19 +42,70 @@ void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone
         }
         alone.operand1 += OneLine[i].name;
     }
-
     alone.TypeOperand1 = IdentifyOperand(alone.operand1);
     alone.TypeOperand2 = IdentifyOperand(alone.operand2);
+}
 
+string OpCodeOneLine( LineInstruction alone){
+    string res = "";
+
+    /*
+     * add adding registers and check for const.
+     *
+     *
+     */
+    for(auto it: MachineCodeInstruction){
+        if( it.name == alone.instr){
+            return Hex(it.opcode);
+        }
+    }
+    return res;
+}
+
+string ModrmOneLine( LineInstruction alone){
+    string res = "";
+
+
+    res = "b 00 000 000";
+
+    return Hex(res);
+}
+
+string SibOneLine( LineInstruction alone){
+    string res = "";
+
+
+    /*
+     *
+     *
+     * check for sibmode
+     *
+     */
+    res = "b 00 000 000";
+    return Hex(res);
 }
 
 string DispOneLine(LineInstruction alone){
     string res = "";
-    if(alone.TypeOperand1 == mem32){
-        for(auto it: MassOfUser){
-            if(alone.operand1.find(it.name)) return Hex(it.length);
+    if((alone.TypeOperand1 == mem32)) {
+        for(auto UserElement :MassOfUser){
+            size_t found = alone.operand1.find(UserElement.name);
+            if((found != string::npos)&&(UserElement.type != label)){
+                return Hex(UserElement.displacement,4);
+
+            }
         }
     }
+
+    if((alone.TypeOperand2 == mem32)) {
+        for(auto UserElement :MassOfUser){
+            size_t found = alone.operand2.find(UserElement.name);
+            if((found != string::npos)&&(UserElement.type != label)){
+                return Hex(UserElement.displacement,4);
+            }
+        }
+    }
+
     return res;
 }
 
@@ -63,17 +115,10 @@ string DispOneLine(LineInstruction alone){
 string MachineCodeForInstruction(vector<lexeme> OneLine){
     if(OneLine[0].type != instruction)return "";
     string MachineCode = "";
-
     LineInstruction alone;
     CreateOperandsForInstruction(OneLine,alone);
-
-
-
-
-    MachineCode += DispOneLine(alone);
-
-
-
+    MachineCode += OpCodeOneLine(alone) + " "+ ModrmOneLine(alone)+
+            " " +DispOneLine(alone) + SibOneLine(alone);
     return MachineCode;
 }
 
@@ -83,6 +128,13 @@ string MachineCodeForInstruction(vector<lexeme> OneLine){
 string MachineCodeForDirective(vector<lexeme>OneLine){
     string MachineCode = "";
     if(OneLine[1].type != directive)return "";
+
+    for(int i = 0; i < MassOfUser.size(); i++){
+        if(MassOfUser[i].name == OneLine[0].name){
+            //cout << DispMain;
+            MassOfUser[i].displacement = DispMain;
+        }
+    }
     for(int i = 0; i < OneLine.size();i++) {
         for (auto it : MachineCodeDirective) {
             if (OneLine[i].name == it.name) {
@@ -116,7 +168,9 @@ string MachineCodeForOneLine( vector<lexeme> OneLine){
 /*
  * Sum disp in machine code in this line
  */
+
 int Displacement(string MachineCode){
+    //string MachineCode = MachineCodeForOneLine(Oneline);
     if(MachineCode == errorMessage) return 0;
     int disp = 0;
     if(MachineCode[0] == '=') return disp;
@@ -137,14 +191,26 @@ void createAllLst( char * inputFile){
     string lineInFile = "";
     if (file.is_open() ) {
         for (int i = 0; i < AllTokens.size(); i++) {
+
+
+            /*
+            * create the mass of displacement
+            */
+            ElementOfDisp alone;
+            alone.Line = AllTokens[i];
+            alone.Value = DispMain;
+            MassOfDisp.push_back(alone);
+            /*
+             * create the mass of displacement
+             */
+
             getline(file,lineInFile);
             string result = "    ";
             string MachineCodeOne = MachineCodeForOneLine(AllTokens[i]);
 
+            result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
+            result.insert(0, HexForDisp(MassOfDisp[MassOfDisp.size() - 1].Value));
 
-            result += MachineCodeOne;
-            result.insert(0, HexForDisp(DispMain));
-            DispMain += Displacement(MachineCodeOne);
             for (int k = result.size(); k < 40; k++) {
                 result += ' ';
             }
@@ -153,6 +219,25 @@ void createAllLst( char * inputFile){
             cout << " " << lineInFile;
             cout << endl;
 
+            /*
+             *
+             */
+            //if(AllTokens.empty()) continue;
+            if (AllTokens[i].empty()) continue;
+            if (AllTokens[i][0].type == label) {
+                for (int j = 0; j < MassOfUser.size(); j++) {
+                    if (MassOfUser[j].name == AllTokens[i][0].name) {
+                        MassOfUser[j].displacement = DispMain;
+                        break;
+                    }
+                }
+
+            }
+            /*
+             *
+             */
+
+            DispMain += Displacement(MachineCodeOne);
             /*
              * cycle - check for ending or starе of new segment
              */

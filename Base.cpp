@@ -7,10 +7,11 @@ vector<vector<lexeme>> AllTokens;
 
 vector<struct_of_sentence> AllStruct;
 
-vector<lexeme> MassOfUser;
+vector<User> MassOfUser;
 
 vector<OneSegment> AllSegments;
 
+vector <ElementOfDisp> MassOfDisp;
 
 /*
  * Dictionary of token

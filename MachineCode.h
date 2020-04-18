@@ -20,16 +20,25 @@ struct MachineCodeDirectiveStruct{
     int SizeOfCode;
 };
 
-
-
 extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
 extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 
+//split line on   ins - op1 - op2
 void CreateOperandsForInstruction(vector<lexeme>, LineInstruction &);
 
+// create machine code
+string DispOneLine(LineInstruction);
+string OpCodeOneLine(LineInstruction);
+string SibOneLine(LineInstruction);
+string ModrmOneLine( LineInstruction );
+string JccMachineCode();
+
+//sum machine code
 string MachineCodeForInstruction(vector <lexeme>);
 string MachineCodeForDirective(vector <lexeme>);
 string MachineCodeForOneLine( vector<lexeme> );
+
+
 int Displacement(string MachineCode);
 void createAllLst(char * );
 

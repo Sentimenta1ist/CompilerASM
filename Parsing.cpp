@@ -3,20 +3,20 @@
 
 
 void FillMassOfUsers(){
-    lexeme alone;
+    User alone;
     for(int i = 0; i < AllTokens.size(); i++){
         if(AllTokens[i].empty())continue;
         for(int j = 0 ; j < AllTokens[i].size() - 1;j++){
                 if(AllTokens[i][j].type == label){
                     alone.name = AllTokens[i][j].name;
                     alone.type =  AllTokens[i][AllTokens[i].size() - 2].type;
-                    alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
+                    //alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
                     MassOfUser.push_back(alone);
                 }
                 if((AllTokens[i][j].type == userId) && (AllTokens[i][j+1].type == directive)){
                     alone.name = AllTokens[i][j].name;
-                    alone.type =  AllTokens[i][AllTokens[i].size() - 2].type;
-                    alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
+                    alone.type =  AllTokens[i][AllTokens[i].size() - 1].type;
+                    //alone.length = Dec(AllTokens[i][AllTokens[i].size() - 1]);
                     MassOfUser.push_back(alone);
                 }
         }

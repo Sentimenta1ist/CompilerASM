@@ -55,6 +55,11 @@ struct lexeme {
     string type;
 };
 
+struct ElementOfDisp{
+    vector <lexeme>Line;
+    int Value;
+};
+
 /*
  * struct for sentences
  * (first stage of work)
@@ -83,6 +88,8 @@ struct OneSegment{
  */
 struct User{
     string name;
+    string type;
+    int displacement;
     int size;
 };
 
@@ -103,7 +110,8 @@ struct LineInstruction{
     string TypeOperand2;
 };
 
-extern vector<lexeme> MassOfUser;
+extern vector<ElementOfDisp> MassOfDisp;
+extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
 extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, vector<string>>> DictionaryOfTokens;

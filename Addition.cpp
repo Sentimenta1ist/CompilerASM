@@ -20,6 +20,23 @@ vector<pair<int, char>> dictionaryHex = {{0,  '0'},
                                          {14, 'E'},
                                          {15, 'F'}};
 
+vector<pair<string, string>> dictionaryBin = {{"0000",  "0"},
+                                         {"0001",  "1"},
+                                         {"0010",  "2"},
+                                         {"0011",  "3"},
+                                         {"0100",  "4"},
+                                         {"0101",  "5"},
+                                         {"0110",  "6"},
+                                         {"0111",  "7"},
+                                         {"1000",  "8"},
+                                         {"1001",  "9"},
+                                         {"1010", "A"},
+                                         {"1011", "B"},
+                                         {"1100", "C"},
+                                         {"1101", "D"},
+                                         {"1110", "E"},
+                                         {"1111", "F"}};
+
 
 string Hex(int number) {
     string result = "";
@@ -53,6 +70,27 @@ string Hex(int number, int size){
 
 string Hex(string number) {
     string result;
+    string bin;
+    if(number.empty())return "";
+    if(number[number.size() - 1] == 'b'){           //its mean number is "00000000b"
+        for(int i = 0; i < 4; i++){
+            bin += number[i];
+        }
+        for(auto it : dictionaryBin){
+            if(bin == it.first) bin = it.second;
+        }
+        result += bin;
+
+        bin.clear();
+        for(int i = 4; i < 8; i++){
+            bin += number[i];
+        }
+        for(auto it : dictionaryBin){
+            if(bin == it.first) bin = it.second;
+        }
+        result += bin;
+        return result;
+    }
     for(int i = 0; i < number.size();i++){
         result += Hex(int(number[i])) + ' ';
     }
@@ -111,4 +149,14 @@ string IdentifyOperand(string example){
      */
 
     return "mem32";
+}
+
+bool EqualsOfVector(vector<lexeme> first,vector<lexeme> second){
+    if(first.size() != second.size())return false;
+    for(int i = 0; i < first.size(); i++){
+        if(first[i].name != second[i].name){
+            return false;
+        }
+    }
+    return true;
 }

@@ -10,3 +10,4 @@ string Hex(string);
 string Hex(int , int);
 
 string IdentifyOperand(string example);
+bool EqualsOfVector(vector<lexeme> first,vector<lexeme> second);
