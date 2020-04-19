@@ -117,6 +117,7 @@ extern vector<struct_of_sentence> AllStruct;
 extern vector<pair<string, vector<string>>> DictionaryOfTokens;
 extern vector<OneSegment> AllSegments;
 extern vector<registerValue> RegistersTable;
+extern vector<pair<int , char>> ScaleTable;
 
 /*
  * main displacement in program

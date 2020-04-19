@@ -19,7 +19,7 @@ vector<MachineCodeDirectiveStruct> MachineCodeDirective{
 };
 
 string JccMachineCode(){
-    return "74";
+    return "74 00 90 90 90 90";
 }
 /*
  * Func for create operands (only for line with instruction!!!)
@@ -66,23 +66,51 @@ string ModrmOneLine( LineInstruction alone){
     string res = "";
 
 
-    res = "b 00 000 000";
-
+    //res = "00000000b";
+    if(Hex(res) == "00"){
+        return "";
+    }
     return Hex(res);
 }
 
 string SibOneLine( LineInstruction alone){
-    string res = "";
+    int scale = 0b00;
+    char scaleDec = '0';
+    int index = 0b000;
+    int base = 0b000;
+    string operand;
+
+    if(alone.TypeOperand1 == mem32){
+        operand = alone.operand1;
+    }
+    else if(alone.TypeOperand2 == mem32){
+        operand = alone.operand2;
+    }
+    else return "";
+    if(operand.find("*") == string::npos) return "";
+
+    for(auto it: RegistersTable){
+
+        size_t found = operand.find(it.reg32Name);
+        if((found != string::npos)&&(operand[found + 3] == '*')){
+            index |= it.value;
+            //scaleDec = operand[found + 4];
+            for(auto ScaleDefine:ScaleTable){
+                if(ScaleDefine.second == operand[found + 4]){
+                    scale |= ScaleDefine.first;
+                }
+            }
+        }
 
 
-    /*
-     *
-     *
-     * check for sibmode
-     *
-     */
-    res = "b 00 000 000";
-    return Hex(res);
+        //if base reg foud + 1-8;
+
+
+    }
+
+
+
+    return Hex((scale << 3 | index) << 3 | base);
 }
 
 string DispOneLine(LineInstruction alone){
@@ -118,7 +146,7 @@ string MachineCodeForInstruction(vector<lexeme> OneLine){
     LineInstruction alone;
     CreateOperandsForInstruction(OneLine,alone);
     MachineCode += OpCodeOneLine(alone) + " "+ ModrmOneLine(alone)+
-            " " +DispOneLine(alone) + SibOneLine(alone);
+            " " + SibOneLine(alone)+ " " +DispOneLine(alone);
     return MachineCode;
 }
 
@@ -161,6 +189,11 @@ string MachineCodeForOneLine( vector<lexeme> OneLine){
     string MachineCode = "";
     MachineCode +=  MachineCodeForDirective(OneLine);
     MachineCode += MachineCodeForInstruction(OneLine);
+
+
+    if(OneLine[0].name == "jz"){            //mod only for jcc instruction(may be will be update// )
+        MachineCode = JccMachineCode();
+    }
 
     return MachineCode;
 }

@@ -40,6 +40,7 @@ vector<pair<string, string>> dictionaryBin = {{"0000",  "0"},
 
 string Hex(int number) {
     string result = "";
+    if(number == 0)return "00";
     int remainder = number;
     while (remainder != 0) {
         for (int i = 0; i < dictionaryHex.size(); i++) {
@@ -70,27 +71,31 @@ string Hex(int number, int size){
 
 string Hex(string number) {
     string result;
-    string bin;
-    if(number.empty())return "";
-    if(number[number.size() - 1] == 'b'){           //its mean number is "00000000b"
-        for(int i = 0; i < 4; i++){
-            bin += number[i];
-        }
-        for(auto it : dictionaryBin){
-            if(bin == it.first) bin = it.second;
-        }
-        result += bin;
 
-        bin.clear();
-        for(int i = 4; i < 8; i++){
-            bin += number[i];
-        }
-        for(auto it : dictionaryBin){
-            if(bin == it.first) bin = it.second;
-        }
-        result += bin;
-        return result;
-    }
+    //restract bin string(optional)
+//    string bin;
+//    if(number.empty())return "";
+//    if((number[number.size() - 1] == 'b')&&(number.size() == 9)){           //its mean number is "00000000b"
+//        for(int i = 0; i < 4; i++){
+//            bin += number[i];
+//        }
+//        for(auto it : dictionaryBin){
+//            if(bin == it.first) bin = it.second;
+//        }
+//        result += bin;
+//
+//        bin.clear();
+//        for(int i = 4; i < 8; i++){
+//            bin += number[i];
+//        }
+//        for(auto it : dictionaryBin){
+//            if(bin == it.first) bin = it.second;
+//        }
+//        result += bin;
+//        return result;
+//    }
+
+
     for(int i = 0; i < number.size();i++){
         result += Hex(int(number[i])) + ' ';
     }

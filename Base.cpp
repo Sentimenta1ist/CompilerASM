@@ -54,3 +54,10 @@ vector<registerValue> RegistersTable = {
         {"ebp","ch",0b101},
         {"esi","dh",0b110},
         {"edi","bh",0b111}};
+
+vector<pair<int , char>> ScaleTable = {
+        {0b00,'1'},
+        {0b01,'2'},
+        {0b10,'4'},
+        {0b11,'8'},
+};
