@@ -4,6 +4,7 @@
 extern vector<pair<int, char>> dictionaryHex;
 
 int Dec(lexeme);
+int Dec(string number);
 string Hex(int);
 string HexForDisp(int);
 string Hex(string);

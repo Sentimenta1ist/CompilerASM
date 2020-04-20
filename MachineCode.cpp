@@ -24,15 +24,15 @@
  */
 
 
-vector<MachineCodeInstructionStruct> MachineCodeInstruction{
-        {0,"add",0x80,1 },
-        {0,"push",0x6A,0 },
-        {0,"cmp",0x3A,1},
-        {0,"test",0x84,1},
+vector<MachineCodeInstructionStruct> MachineCodeInstruction{  //create for 32 bit operands
+        {0,"add",0x81,1 },
+        {0,"push",0x68,0 },
+        {0,"cmp",0x3B,1},
+        {0,"test",0x85,1},
         {0,"stosd",0xAB,0 },
-        {0,"mov",0x8A,1}, //if mordm have
-        {0,"mov",0xA0,0 }, //if operand 1 - "al" or "eax" - modrm - 0
-        {0,"dec",0xA9,0},
+        {0,"mov",0x8B,1}, //if mordm have
+        {0,"mov",0xA1,0 }, //if operand 1 - "al" or "eax" - modrm - 0
+        {0,"dec",0x48,0, 1},
         {0,"bts",0x0FAB,0 },
         {0,"jz",0xA9,0}
 };
@@ -71,6 +71,25 @@ void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone
     alone.TypeOperand2 = IdentifyOperand(alone.operand2);
 }
 
+string ImmCodeOneLine(LineInstruction alone){
+    string res = "";
+    if((alone.TypeOperand1 != const8)&&(alone.TypeOperand2 != const8)){
+        return "";
+    }
+    if(alone.TypeOperand1 == const8) {
+        res = Hex(Dec(alone.operand1),1);
+        return res;
+    }
+
+    if(alone.TypeOperand2 == const8) {
+        res = Hex(Dec(alone.operand2),1);
+        if((alone.TypeOperand1 == mem32)||(alone.TypeOperand1 == mem32)){
+            return Hex(Dec(alone.operand2),4);
+        }
+        return res;
+    }
+}
+
 string OpCodeOneLine( LineInstruction alone){
     string res = "";
 
@@ -81,13 +100,22 @@ string OpCodeOneLine( LineInstruction alone){
      */
     for(auto it: MachineCodeInstruction){
         if((it.name == alone.instr)&&(!(ModrmOneLine(alone).empty()))&&(it.mod_r_m == 1)){
-            return Hex(it.opcode + 1);
+            if(it.registerInOpCode ){
+                for(auto regi : RegistersTable){
+                    if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand2)){
+                        return Hex(it.opcode | regi.value);
+                    }
+                }
+                //return Hex(it.opcode |)
+            }
+            return Hex(it.opcode);
         }
         if((it.name == alone.instr)&&(ModrmOneLine(alone).empty())&&(it.mod_r_m == 0)){
             return Hex(it.opcode);
         }
+
     }
-    return res;
+    //return res;
 }
 
 /*
@@ -103,7 +131,7 @@ string ModrmOneLine( LineInstruction alone){
         return "";
     }
     else if(alone.instr == "mov"){
-        if((alone.operand1 == "eax")&&(alone.operand1 == "al")){
+        if((alone.operand1 == "eax")||(alone.operand1 == "al")){
             return "";
         }
     }
@@ -112,6 +140,8 @@ string ModrmOneLine( LineInstruction alone){
             return "";
         }
     }
+
+
 
     return Hex((mod << 3 | regis) << 3 | regrm);
 }
@@ -193,7 +223,7 @@ string MachineCodeForInstruction(vector<lexeme> OneLine){
     LineInstruction alone;
     CreateOperandsForInstruction(OneLine,alone);
     MachineCode += OpCodeOneLine(alone) + " "+ ModrmOneLine(alone)+
-            " " + SibOneLine(alone)+ " " +DispOneLine(alone);
+            " " + SibOneLine(alone)+ " " +DispOneLine(alone) + " " + ImmCodeOneLine(alone);
     return MachineCode;
 }
 
@@ -208,6 +238,9 @@ string MachineCodeForDirective(vector<lexeme>OneLine){
     for(int i = 0; i < MassOfUser.size(); i++){
         if(MassOfUser[i].name == OneLine[0].name){
             MassOfUser[i].displacement = DispMain;
+            if(MassOfUser[i].directiveOfThis == "equ"){
+                MassOfUser[i].displacement = MassOfUser[i].size;
+            }
         }
     }
     for(int i = 0; i < OneLine.size();i++) {
@@ -346,4 +379,9 @@ void createAllLst( char * inputFile){
         }
     }
     file.close();
+
+    //table out put
+
+    TableOutPut();
+
 }

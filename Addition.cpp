@@ -134,8 +134,12 @@ string IdentifyOperand(string example){
 
     if(example.empty()) return "-1";
     for(auto table: RegistersTable){
-        if(table.reg32Name == example) return "reg32";
-        if(table.reg8Name == example) return "reg8";
+        if(table.reg32Name == example){
+            return "reg32";
+        }
+        if(table.reg8Name == example) {
+            return "reg8";
+        }
     }
 
     //check for hex const
@@ -182,7 +186,7 @@ void TableOutPut(){
 
     cout << endl << " Segment register:" << endl;
     cout << "----------------------------------------\n"
-            "| # | Segment Register  | Destination  |\n"
+            "|#  |Segment Register   |Destination   |\n"
             "----------------------------------------\n";
     for(int i = 0; i < TableOfPrefixesSegment.size(); i++){
         cout << "|" << setw(3) << i << "|";
@@ -200,10 +204,21 @@ void TableOutPut(){
         cout << "|" << setw(3) << i << "|";
         std::transform(MassOfUser[i].name.begin(), MassOfUser[i].name.end(), MassOfUser[i].name.begin(), [](unsigned char c) { return std::toupper(c); });
         cout << setw(11) << MassOfUser[i].name << "|";
-        cout << setw(11) << "" << "|";   //add directive
+        std::transform(MassOfUser[i].directiveOfThis.begin(), MassOfUser[i].directiveOfThis.end(), MassOfUser[i].directiveOfThis.begin(), [](unsigned char c) { return std::toupper(c); });
+        cout << setw(11) << MassOfUser[i].directiveOfThis << "|";   //add directive
         cout << setw(9) << Hex(MassOfUser[i].displacement,2) << "|";
-        cout << setw(10) << "" << "|";//add segment
+        std::transform(MassOfUser[i].segment.begin(), MassOfUser[i].segment.end(), MassOfUser[i].segment.begin(), [](unsigned char c) { return std::toupper(c); });
+        cout << setw(10) << MassOfUser[i].segment << "|";//add segment
         cout << endl;
     }
     cout << "--------------------------------------------------\n";
+}
+
+int Dec(string number){
+    for(int i = 0; i < number.size();i++){
+        if((number[i] <= '9')&&(number[i] >='0')){
+            return stoi(number);
+        }
+    }
+    return 1000;
 }

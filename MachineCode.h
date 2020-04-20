@@ -10,6 +10,7 @@ struct MachineCodeInstructionStruct{
     string name;
     int opcode;
     int mod_r_m;
+    int registerInOpCode = 0; // mean that opcode = opcode + register;
 };
 
 struct MachineCodeDirectiveStruct{
@@ -25,6 +26,7 @@ extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 void CreateOperandsForInstruction(vector<lexeme>, LineInstruction &);
 
 // create machine code
+string ImmCodeOneLine(LineInstruction);
 string DispOneLine(LineInstruction);
 string OpCodeOneLine(LineInstruction);
 string SibOneLine(LineInstruction);

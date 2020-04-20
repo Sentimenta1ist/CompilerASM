@@ -21,8 +21,18 @@ label1:
 		test eax, M1
 	ENDIF
 	IF Times2
+	    test	eax,FS:Vd[ebx + edi * 4]
+        bts	Vd[esi*4], eax
+       	add	String1[edi + esi*2], 1
 		mov	edi, String1
 	ENDIF
+	IF Times2
+	    test	eax,FS:Vd[ebx + edi * 4]
+        bts	Vd[esi*4], eax
+       	add	String1[edi + esi*2], 1
+		mov	edi, String1
+    	mov	edi, String1
+    ENDIF
 lend:
 	stosd
 	cmp	eax, esi

@@ -89,6 +89,8 @@ struct OneSegment{
 struct User{
     string name;
     string type;
+    string directiveOfThis;
+    string segment;
     int displacement;
     int size;
 };
@@ -108,6 +110,7 @@ struct LineInstruction{
     string operand2;
     string TypeOperand1;
     string TypeOperand2;
+    int size;
 };
 
 struct PrefixSegments{
@@ -115,6 +118,7 @@ struct PrefixSegments{
     string fullName;
     int value;
 };
+
 
 extern vector<ElementOfDisp> MassOfDisp;
 extern vector<User> MassOfUser;
