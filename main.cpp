@@ -9,6 +9,7 @@ struct LineInstruction2{
     string TypeOperand2;
 };
 
+
 int main() {
 
     LoadFromFile("test.asm");
@@ -19,25 +20,17 @@ int main() {
     string two = "ons";
     //cout << Hex("10001001b");
 
-    string operand = "012345eax9789";
-    for(auto it: RegistersTable){
 
-        size_t found = operand.find(it.reg32Name);
-        if(found != string::npos){
-            cout << found;
 
-        }
-    }
-
-    int q1 = 0b00;
+    int q1 = 0b10;
     int q2 = 0b000;
     int q3 = 0b000;
 
-    q1 |= 0b11;
+    q1 &= 0b00;
     q2 |= 0b111;
     q3 |= 0b111;
    // cout << Hex((q1 << 3 | q2) << 3 | q3) << endl;
-   // cout << q1  << endl;
+    // cout << q1  << endl;
 //    size_t found = one.find(two);
 //    if(found != string::npos){
 //        cout << "+";
@@ -47,9 +40,12 @@ int main() {
 //    }
 
     createAllLst("test.asm");
-    for(int i = 0; i < MassOfUser.size();i++){
-        cout << MassOfUser[i].name << ' '<< MassOfUser[i].type << ' ' << Hex(MassOfUser[i].displacement,2) << endl;
-    }
+    string name = " dsdaadadDADA";
+    int l = 0xff;
+    cout << std::uppercase << hex << l;
+    TableOutPut();
+
+
 //    for(int i = 0; i < AllSegments.size(); i++){
 //        cout << "name = " << AllSegments[i].name << "; size = " << HexForDisp(AllSegments[i].size) << endl;
 //    }

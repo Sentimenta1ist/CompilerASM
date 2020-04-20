@@ -10,8 +10,6 @@ struct MachineCodeInstructionStruct{
     string name;
     int opcode;
     int mod_r_m;
-    int sib;
-    int disp;
 };
 
 struct MachineCodeDirectiveStruct{

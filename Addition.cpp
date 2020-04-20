@@ -50,7 +50,7 @@ string Hex(int number) {
         }
         remainder /= 16;
     }
-    if(result.size() < 2)result.insert(0,1, '0');
+    if(result.size() % 2 != 0 )result.insert(0,1, '0');
     return result;
 }
 
@@ -164,4 +164,46 @@ bool EqualsOfVector(vector<lexeme> first,vector<lexeme> second){
         }
     }
     return true;
+}
+
+void TableOutPut(){
+    cout << endl << " Segments:" << endl;
+    cout << "--------------------------------------------\n"
+            "|#  |Name           |Size       |Length     |\n"
+            "--------------------------------------------\n";
+    for(int i = 0; i < AllSegments.size(); i++){
+        cout << "| " << setw(1) << i << " |";
+        std::transform(AllSegments[i].name.begin(), AllSegments[i].name.end(), AllSegments[i].name.begin(), [](unsigned char c) { return std::toupper(c); });
+        cout << setw(15) <<left<< AllSegments[i].name <<"|" ;
+        cout << setw(11) << "32" << "|";
+        cout << setw(11) << Hex(AllSegments[i].size,2)  << "|" << endl;
+    }
+    cout << "-------------------------------------------" << endl;
+
+    cout << endl << " Segment register:" << endl;
+    cout << "----------------------------------------\n"
+            "| # | Segment Register  | Destination  |\n"
+            "----------------------------------------\n";
+    for(int i = 0; i < TableOfPrefixesSegment.size(); i++){
+        cout << "|" << setw(3) << i << "|";
+        std::transform(TableOfPrefixesSegment[i].prefix.begin(), TableOfPrefixesSegment[i].prefix.end(), TableOfPrefixesSegment[i].prefix.begin(), [](unsigned char c) { return std::toupper(c); });
+        cout << setw(19) <<  TableOfPrefixesSegment[i].prefix << "|";
+        cout << setw(14) << TableOfPrefixesSegment[i].fullName << "|" << endl;
+    }
+    cout << "---------------------------------------" << endl;
+
+    cout << endl << " User defines names:" << endl;
+    cout << "--------------------------------------------------\n"
+            "| # |Name       |Type       |Value    |Attr      |\n"
+            "--------------------------------------------------\n";
+    for(int i = 0; i < MassOfUser.size(); i++){
+        cout << "|" << setw(3) << i << "|";
+        std::transform(MassOfUser[i].name.begin(), MassOfUser[i].name.end(), MassOfUser[i].name.begin(), [](unsigned char c) { return std::toupper(c); });
+        cout << setw(11) << MassOfUser[i].name << "|";
+        cout << setw(11) << "" << "|";   //add directive
+        cout << setw(9) << Hex(MassOfUser[i].displacement,2) << "|";
+        cout << setw(10) << "" << "|";//add segment
+        cout << endl;
+    }
+    cout << "--------------------------------------------------\n";
 }

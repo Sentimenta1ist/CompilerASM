@@ -1,15 +1,40 @@
 #include "MachineCode.h"
 
+/*
+ * 80 /0 ib     ADD r/m8, imm8
+ * 81 /0 id     ADD r/m32, imm32
+ * 83 /0 ib     ADD r/m32, imm8
+ *
+ * 6A   PUSH imm8
+ * 68   PUSH imm32
+ *
+ * 3A /r    CMP r8, r/m8
+ * 3B /r    CMP r32, r/m32
+ *
+ * 84 /r    TEST r/m8, r8
+ * 85 /r    TEST r/m32, r32
+ *
+ * 48+rd    DEC r32
+ *
+ * 0FAB     BTS r/m32, r32
+ *
+ * AB   STOSD
+ *
+ * 74 cb    JZ rel8     Якщо нуль (ZF = 1)
+ */
+
+
 vector<MachineCodeInstructionStruct> MachineCodeInstruction{
-        {0,"add",0x00,0,0,0 },
-        {0,"push",0x68,0,0,0 },
-        {0,"cmp",0x83,0,0,0 },
-        {0,"test",0x85,0,0,0 },
-        {0,"stosd",0xA9,0,0,0 },
-        {0,"mov",0xA9,0,0,0 },
-        {0,"dec",0xA9,0,0,0 },
-        {0,"bts",0xA9,0,0,0 },
-        {0,"jz",0xA9,0,0,0 }
+        {0,"add",0x80,1 },
+        {0,"push",0x6A,0 },
+        {0,"cmp",0x3A,1},
+        {0,"test",0x84,1},
+        {0,"stosd",0xAB,0 },
+        {0,"mov",0x8A,1}, //if mordm have
+        {0,"mov",0xA0,0 }, //if operand 1 - "al" or "eax" - modrm - 0
+        {0,"dec",0xA9,0},
+        {0,"bts",0x0FAB,0 },
+        {0,"jz",0xA9,0}
 };
 
 vector<MachineCodeDirectiveStruct> MachineCodeDirective{
@@ -55,31 +80,52 @@ string OpCodeOneLine( LineInstruction alone){
      *
      */
     for(auto it: MachineCodeInstruction){
-        if( it.name == alone.instr){
+        if((it.name == alone.instr)&&(!(ModrmOneLine(alone).empty()))&&(it.mod_r_m == 1)){
+            return Hex(it.opcode + 1);
+        }
+        if((it.name == alone.instr)&&(ModrmOneLine(alone).empty())&&(it.mod_r_m == 0)){
             return Hex(it.opcode);
         }
     }
     return res;
 }
 
+/*
+ * create only modrm
+ */
 string ModrmOneLine( LineInstruction alone){
-    string res = "";
 
+    int mod = 0b00;
+    int regis = 0b000;
+    int regrm = 0b000;
 
-    //res = "00000000b";
-    if(Hex(res) == "00"){
+    if(alone.TypeOperand1 == nonOperand){
         return "";
     }
-    return Hex(res);
+    else if(alone.instr == "mov"){
+        if((alone.operand1 == "eax")&&(alone.operand1 == "al")){
+            return "";
+        }
+    }
+    for(auto it:MachineCodeInstruction ){
+        if((it.name == alone.instr)&&(it.mod_r_m == 0) &&(it.name != "mov")){
+            return "";
+        }
+    }
+
+    return Hex((mod << 3 | regis) << 3 | regrm);
 }
 
+/*
+ * create only sib
+ */
 string SibOneLine( LineInstruction alone){
     int scale = 0b00;
     char scaleDec = '0';
     int index = 0b000;
-    int base = 0b000;
-    string operand;
+    int base = 0b101; //default base is 101
 
+    string operand;
     if(alone.TypeOperand1 == mem32){
         operand = alone.operand1;
     }
@@ -91,28 +137,29 @@ string SibOneLine( LineInstruction alone){
 
     for(auto it: RegistersTable){
 
-        size_t found = operand.find(it.reg32Name);
-        if((found != string::npos)&&(operand[found + 3] == '*')){
+        //search index reg
+        size_t found_index = operand.find(it.reg32Name);
+        if((found_index != string::npos)&&(operand[found_index + 3] == '*')){
             index |= it.value;
             //scaleDec = operand[found + 4];
             for(auto ScaleDefine:ScaleTable){
-                if(ScaleDefine.second == operand[found + 4]){
+                if(ScaleDefine.second == operand[found_index + 4]){
                     scale |= ScaleDefine.first;
                 }
             }
         }
-
-
-        //if base reg foud + 1-8;
-
-
+        //if base another
+        if((found_index != string::npos)&&(operand[found_index + 3] == '+')) {
+            base &= 0b000;
+            base |= it.value;
+        }
     }
-
-
-
     return Hex((scale << 3 | index) << 3 | base);
 }
 
+/*
+ * create only disp
+ */
 string DispOneLine(LineInstruction alone){
     string res = "";
     if((alone.TypeOperand1 == mem32)) {
@@ -155,11 +202,11 @@ string MachineCodeForInstruction(vector<lexeme> OneLine){
  */
 string MachineCodeForDirective(vector<lexeme>OneLine){
     string MachineCode = "";
+    if(OneLine.size() < 2) return "";
     if(OneLine[1].type != directive)return "";
 
     for(int i = 0; i < MassOfUser.size(); i++){
         if(MassOfUser[i].name == OneLine[0].name){
-            //cout << DispMain;
             MassOfUser[i].displacement = DispMain;
         }
     }
@@ -173,6 +220,7 @@ string MachineCodeForDirective(vector<lexeme>OneLine){
             }
         }
     }
+    return MachineCode;
 }
 
 /*
@@ -181,11 +229,11 @@ string MachineCodeForDirective(vector<lexeme>OneLine){
 string MachineCodeForOneLine( vector<lexeme> OneLine){
     if(OneLine.empty())return "";
     if(OneLine[0].name == ";") return "";
+    if(FullCheckOFLine(OneLine)) return errorMessage;
     if(OneLine[0].name == "end") {
         DispMain = -1;
         return "";
     }
-    //if(FullCheckOFLine(OneLine)) return errorMessage;
     string MachineCode = "";
     MachineCode +=  MachineCodeForDirective(OneLine);
     MachineCode += MachineCodeForInstruction(OneLine);
@@ -238,12 +286,12 @@ void createAllLst( char * inputFile){
              */
 
             getline(file,lineInFile);
-            string result = "    ";
+            string result = "";
             string MachineCodeOne = MachineCodeForOneLine(AllTokens[i]);
 
             result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
             result.insert(0, HexForDisp(MassOfDisp[MassOfDisp.size() - 1].Value));
-
+            result.insert(6,"   "); // for good output
             for (int k = result.size(); k < 40; k++) {
                 result += ' ';
             }

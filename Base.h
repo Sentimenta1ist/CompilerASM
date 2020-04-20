@@ -110,6 +110,12 @@ struct LineInstruction{
     string TypeOperand2;
 };
 
+struct PrefixSegments{
+    string prefix;
+    string fullName;
+    int value;
+};
+
 extern vector<ElementOfDisp> MassOfDisp;
 extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;
@@ -118,6 +124,7 @@ extern vector<pair<string, vector<string>>> DictionaryOfTokens;
 extern vector<OneSegment> AllSegments;
 extern vector<registerValue> RegistersTable;
 extern vector<pair<int , char>> ScaleTable;
+extern vector <PrefixSegments> TableOfPrefixesSegment;
 
 /*
  * main displacement in program

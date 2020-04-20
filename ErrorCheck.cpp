@@ -21,23 +21,23 @@ vector<ErrorOfOperands> Accessed{
 
 bool CheckForUndefined(vector<lexeme> example) {
 
-    int flag = 0;
-    for (int i = 0; i < example.size(); i++) {
-        if (example[i].type == userId) {
-            flag = 0;
-            for (int j = 0; j < MassOfUser.size(); j++) {
-                if (example[i].name == MassOfUser[j].name) {
-                    flag = 1;
-                    break;
-                }
-            }
-            //example[i].type = undefined;
-            if (flag == 0) {
-                return true;
-            }
-
-        }
-    }
+//    int flag = 0;
+//    for (int i = 0; i < example.size(); i++) {
+//        if (example[i].type == userId) {
+//            flag = 0;
+//            for (int j = 0; j < MassOfUser.size(); j++) {
+//                if (example[i].name == MassOfUser[j].name) {
+//                    flag = 1;
+//                    break;
+//                }
+//            }
+//            //example[i].type = undefined;
+//            if (flag == 0) {
+//                return true;
+//            }
+//
+//        }
+//    }
     return false;
 }
 
