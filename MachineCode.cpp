@@ -30,8 +30,8 @@ vector<MachineCodeInstructionStruct> MachineCodeInstruction{  //create for 32 bi
         {0,"cmp",0x3B,1},
         {0,"test",0x85,1},
         {0,"stosd",0xAB,0 },
-        {0,"mov",0x8B,1}, //if mordm have
-        {0,"mov",0xA1,0 }, //if operand 1 - "al" or "eax" - modrm - 0
+        {0,"mov",0x8B,1}, // if mordm have
+        {0,"mov",0xA1,0 }, // if operand 1 - "al" or "eax" - modrm - 0
         {0,"dec",0x48,0, 1},
         {0,"bts",0x0FAB,0 },
         {0,"jz",0xA9,0}
@@ -46,44 +46,21 @@ vector<MachineCodeDirectiveStruct> MachineCodeDirective{
 string JccMachineCode(){
     return "74 00 90 90 90 90";
 }
-/*
- * Func for create operands (only for line with instruction!!!)
- */
-void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone){
-    alone.instr = OneLine[0].name;
-    alone.operand1 = "";
-    alone.operand2 = "";
-    alone.TypeOperand2 = "";
-    alone.TypeOperand1 = "";
-    int flagSecondOperand = 0;
-    for(int i = 1; i < OneLine.size(); i++){
-        if(OneLine[i].name == ","){
-            flagSecondOperand = 1;
-            continue;
-        }
-        if(flagSecondOperand == 1){
-            alone.operand2 += OneLine[i].name;
-            continue;
-        }
-        alone.operand1 += OneLine[i].name;
-    }
-    alone.TypeOperand1 = IdentifyOperand(alone.operand1);
-    alone.TypeOperand2 = IdentifyOperand(alone.operand2);
-}
+
 
 string ImmCodeOneLine(LineInstruction alone){
     string res = "";
-    if((alone.TypeOperand1 != const8)&&(alone.TypeOperand2 != const8)){
+    if((alone.TypeOperand1 != const)&&(alone.TypeOperand2 != const)){
         return "";
     }
-    if(alone.TypeOperand1 == const8) {
+    if(alone.TypeOperand1 == const) {
         res = Hex(Dec(alone.operand1),1);
         return res;
     }
 
-    if(alone.TypeOperand2 == const8) {
+    if(alone.TypeOperand2 == const) {
         res = Hex(Dec(alone.operand2),1);
-        if((alone.TypeOperand1 == mem32)||(alone.TypeOperand1 == mem32)){
+        if((alone.TypeOperand1 == mem)||(alone.TypeOperand1 == mem)){
             return Hex(Dec(alone.operand2),4);
         }
         return res;
@@ -100,16 +77,17 @@ string OpCodeOneLine( LineInstruction alone){
      */
     for(auto it: MachineCodeInstruction){
         if((it.name == alone.instr)&&(!(ModrmOneLine(alone).empty()))&&(it.mod_r_m == 1)){
+
             if(it.registerInOpCode ){
                 for(auto regi : RegistersTable){
                     if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand2)){
                         return Hex(it.opcode | regi.value);
                     }
                 }
-                //return Hex(it.opcode |)
             }
             return Hex(it.opcode);
         }
+
         if((it.name == alone.instr)&&(ModrmOneLine(alone).empty())&&(it.mod_r_m == 0)){
             return Hex(it.opcode);
         }
@@ -156,10 +134,10 @@ string SibOneLine( LineInstruction alone){
     int base = 0b101; //default base is 101
 
     string operand;
-    if(alone.TypeOperand1 == mem32){
+    if(alone.TypeOperand1 == mem){
         operand = alone.operand1;
     }
-    else if(alone.TypeOperand2 == mem32){
+    else if(alone.TypeOperand2 == mem){
         operand = alone.operand2;
     }
     else return "";
@@ -192,7 +170,7 @@ string SibOneLine( LineInstruction alone){
  */
 string DispOneLine(LineInstruction alone){
     string res = "";
-    if((alone.TypeOperand1 == mem32)) {
+    if((alone.TypeOperand1 == mem)) {
         for(auto UserElement :MassOfUser){
             size_t found = alone.operand1.find(UserElement.name);
             if((found != string::npos)&&(UserElement.type != label)){
@@ -202,7 +180,7 @@ string DispOneLine(LineInstruction alone){
         }
     }
 
-    if((alone.TypeOperand2 == mem32)) {
+    if((alone.TypeOperand2 == mem)) {
         for(auto UserElement :MassOfUser){
             size_t found = alone.operand2.find(UserElement.name);
             if((found != string::npos)&&(UserElement.type != label)){

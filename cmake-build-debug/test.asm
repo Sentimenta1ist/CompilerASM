@@ -13,6 +13,7 @@ label1:
 	dec 	eax
 	push	100
 	mov	esi, 1
+	add vb[ebp*8],56h
 	test	eax,FS:Vd[ebx + edi * 4]
 	bts	Vd[esi*4], eax
 	add	String1[edi + esi*2], 1
@@ -21,21 +22,13 @@ label1:
 		test eax, M1
 	ENDIF
 	IF Times2
-	    test	eax,FS:Vd[ebx + edi * 4]
-        bts	Vd[esi*4], eax
-       	add	String1[edi + esi*2], 1
 		mov	edi, String1
 	ENDIF
-	IF Times2
-	    test	eax,FS:Vd[ebx + edi * 4]
-        bts	Vd[esi*4], eax
-       	add	String1[edi + esi*2], 1
-		mov	edi, String1
-    	mov	edi, String1
-    ENDIF
 lend:
 	stosd
 	cmp	eax, esi
+	test  bh,vb[esi*8]
+	and eax,ebx
 	jz label1
 Code 	ends
 END

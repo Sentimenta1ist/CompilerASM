@@ -20,7 +20,8 @@ vector<pair<int, char>> dictionaryHex = {{0,  '0'},
                                          {14, 'E'},
                                          {15, 'F'}};
 
-vector<pair<string, string>> dictionaryBin = {{"0000",  "0"},
+vector<pair<string, string>> dictionaryBin =
+                                        {{"0000",  "0"},
                                          {"0001",  "1"},
                                          {"0010",  "2"},
                                          {"0011",  "3"},
@@ -114,6 +115,32 @@ string HexForDisp(int number){
     return result;
 }
 
+/*
+ * Func for create operands (only for line with instruction!!!)
+ */
+void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone){
+    alone.instr = OneLine[0].name;
+    alone.operand1 = "";
+    alone.operand2 = "";
+    alone.TypeOperand2 = "";
+    alone.TypeOperand1 = "";
+    alone.sizeOpernad1 = 8;
+    alone.sizeOpernad2 = 8;
+    int flagSecondOperand = 0;
+    for(int i = 1; i < OneLine.size(); i++){
+        if(OneLine[i].name == ","){
+            flagSecondOperand = 1;
+            continue;
+        }
+        if(flagSecondOperand == 1){
+            alone.operand2 += OneLine[i].name;
+            continue;
+        }
+        alone.operand1 += OneLine[i].name;
+    }
+    IdentifyOperand(alone);
+}
+
 int Dec(lexeme constName){
     int result = 0;
     if(constName.type == constDecimal) return stoi(constName.name);
@@ -130,9 +157,9 @@ int Dec(lexeme constName){
     return result;
 }
 
-string IdentifyOperand(string example){
+void IdentifyOperand(LineInstruction &alone){
 
-    if(example.empty()) return "-1";
+    if(example.empty()) alone. "-1";
     for(auto table: RegistersTable){
         if(table.reg32Name == example){
             return "reg32";

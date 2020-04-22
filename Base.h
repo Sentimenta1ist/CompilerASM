@@ -29,15 +29,15 @@
 #define userId "userId"
 
 //for program
-#define errorMessage "*  error!!!  *"
+#define errorMessage "* error *"
 
-#define mem32 "mem32"
-#define const32 "const32"
-#define reg32 "reg32"
-
-#define mem8 "mem8"
-#define const8 "const8"
-#define reg8 "reg8"
+#define mem "mem"
+#define const "const"
+#define reg "reg"
+//
+//#define mem8 "mem8"
+//#define const8 "const8"
+//#define reg8 "reg8"
 
 #define nonOperand  "-1"
 
@@ -110,7 +110,8 @@ struct LineInstruction{
     string operand2;
     string TypeOperand1;
     string TypeOperand2;
-    int size;
+    int sizeOpernad1;   // 8 or 32
+    int sizeOpernad2;   // 8 or 32
 };
 
 struct PrefixSegments{
