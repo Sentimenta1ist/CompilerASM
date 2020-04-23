@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <regex>
 
+//segodnya ya pYaN
+
 //semantic
 #define reg "reg"
 #define instruction "instruction"
