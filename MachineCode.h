@@ -22,8 +22,6 @@ struct MachineCodeDirectiveStruct{
 extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
 extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
 
-//split line on   ins - op1 - op2
-void CreateOperandsForInstruction(vector<lexeme>, LineInstruction &);
 
 // create machine code
 string ImmCodeOneLine(LineInstruction);
