@@ -1,4 +1,4 @@
-# Install script for directory: /home/sentimental/Projects/CLionProjects/CourseWorkASM
+# Install script for directory: /home/sentimental/FAM/LittleCompilerASM/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

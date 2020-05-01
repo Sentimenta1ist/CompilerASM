@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/Addition.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/Addition.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/Base.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/Base.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/ErrorCheck.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/ErrorCheck.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/FirstSecondStage.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/FirstSecondStage.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/MachineCode.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/MachineCode.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/Parsing.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/Parsing.cpp.o"
-  "/home/sentimental/Projects/CLionProjects/CourseWorkASM/main.cpp" "/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/main.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/Addition.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/Addition.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/Base.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/Base.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/ErrorCheck.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/ErrorCheck.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/FirstSecondStage.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/MachineCode.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/MachineCode.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/Parsing.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/Parsing.cpp.o"
+  "/home/sentimental/FAM/LittleCompilerASM/cpp/main.cpp" "/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

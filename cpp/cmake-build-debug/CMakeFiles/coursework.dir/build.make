@@ -43,10 +43,10 @@ RM = /opt/clion-2019.3.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sentimental/Projects/CLionProjects/CourseWorkASM
+CMAKE_SOURCE_DIR = /home/sentimental/FAM/LittleCompilerASM/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/coursework.dir/depend.make
@@ -59,94 +59,94 @@ include CMakeFiles/coursework.dir/flags.make
 
 CMakeFiles/coursework.dir/main.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/coursework.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/main.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/coursework.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/main.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/main.cpp
 
 CMakeFiles/coursework.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/main.cpp > CMakeFiles/coursework.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/main.cpp > CMakeFiles/coursework.dir/main.cpp.i
 
 CMakeFiles/coursework.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/main.cpp -o CMakeFiles/coursework.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/main.cpp -o CMakeFiles/coursework.dir/main.cpp.s
 
 CMakeFiles/coursework.dir/Addition.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/Addition.cpp.o: ../Addition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/coursework.dir/Addition.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Addition.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/Addition.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/coursework.dir/Addition.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Addition.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/Addition.cpp
 
 CMakeFiles/coursework.dir/Addition.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/Addition.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/Addition.cpp > CMakeFiles/coursework.dir/Addition.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/Addition.cpp > CMakeFiles/coursework.dir/Addition.cpp.i
 
 CMakeFiles/coursework.dir/Addition.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/Addition.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/Addition.cpp -o CMakeFiles/coursework.dir/Addition.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/Addition.cpp -o CMakeFiles/coursework.dir/Addition.cpp.s
 
 CMakeFiles/coursework.dir/Parsing.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/Parsing.cpp.o: ../Parsing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/coursework.dir/Parsing.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Parsing.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/Parsing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/coursework.dir/Parsing.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Parsing.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/Parsing.cpp
 
 CMakeFiles/coursework.dir/Parsing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/Parsing.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/Parsing.cpp > CMakeFiles/coursework.dir/Parsing.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/Parsing.cpp > CMakeFiles/coursework.dir/Parsing.cpp.i
 
 CMakeFiles/coursework.dir/Parsing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/Parsing.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/Parsing.cpp -o CMakeFiles/coursework.dir/Parsing.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/Parsing.cpp -o CMakeFiles/coursework.dir/Parsing.cpp.s
 
 CMakeFiles/coursework.dir/Base.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/Base.cpp.o: ../Base.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/coursework.dir/Base.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Base.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/Base.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/coursework.dir/Base.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/Base.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/Base.cpp
 
 CMakeFiles/coursework.dir/Base.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/Base.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/Base.cpp > CMakeFiles/coursework.dir/Base.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/Base.cpp > CMakeFiles/coursework.dir/Base.cpp.i
 
 CMakeFiles/coursework.dir/Base.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/Base.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/Base.cpp -o CMakeFiles/coursework.dir/Base.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/Base.cpp -o CMakeFiles/coursework.dir/Base.cpp.s
 
 CMakeFiles/coursework.dir/ErrorCheck.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/ErrorCheck.cpp.o: ../ErrorCheck.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/coursework.dir/ErrorCheck.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/ErrorCheck.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/ErrorCheck.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/coursework.dir/ErrorCheck.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/ErrorCheck.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/ErrorCheck.cpp
 
 CMakeFiles/coursework.dir/ErrorCheck.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/ErrorCheck.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/ErrorCheck.cpp > CMakeFiles/coursework.dir/ErrorCheck.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/ErrorCheck.cpp > CMakeFiles/coursework.dir/ErrorCheck.cpp.i
 
 CMakeFiles/coursework.dir/ErrorCheck.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/ErrorCheck.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/ErrorCheck.cpp -o CMakeFiles/coursework.dir/ErrorCheck.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/ErrorCheck.cpp -o CMakeFiles/coursework.dir/ErrorCheck.cpp.s
 
 CMakeFiles/coursework.dir/FirstSecondStage.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/FirstSecondStage.cpp.o: ../FirstSecondStage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/coursework.dir/FirstSecondStage.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/FirstSecondStage.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/FirstSecondStage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/coursework.dir/FirstSecondStage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/FirstSecondStage.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.cpp
 
 CMakeFiles/coursework.dir/FirstSecondStage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/FirstSecondStage.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/FirstSecondStage.cpp > CMakeFiles/coursework.dir/FirstSecondStage.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.cpp > CMakeFiles/coursework.dir/FirstSecondStage.cpp.i
 
 CMakeFiles/coursework.dir/FirstSecondStage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/FirstSecondStage.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/FirstSecondStage.cpp -o CMakeFiles/coursework.dir/FirstSecondStage.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.cpp -o CMakeFiles/coursework.dir/FirstSecondStage.cpp.s
 
 CMakeFiles/coursework.dir/MachineCode.cpp.o: CMakeFiles/coursework.dir/flags.make
 CMakeFiles/coursework.dir/MachineCode.cpp.o: ../MachineCode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/coursework.dir/MachineCode.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/MachineCode.cpp.o -c /home/sentimental/Projects/CLionProjects/CourseWorkASM/MachineCode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/coursework.dir/MachineCode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coursework.dir/MachineCode.cpp.o -c /home/sentimental/FAM/LittleCompilerASM/cpp/MachineCode.cpp
 
 CMakeFiles/coursework.dir/MachineCode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coursework.dir/MachineCode.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/Projects/CLionProjects/CourseWorkASM/MachineCode.cpp > CMakeFiles/coursework.dir/MachineCode.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sentimental/FAM/LittleCompilerASM/cpp/MachineCode.cpp > CMakeFiles/coursework.dir/MachineCode.cpp.i
 
 CMakeFiles/coursework.dir/MachineCode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coursework.dir/MachineCode.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/Projects/CLionProjects/CourseWorkASM/MachineCode.cpp -o CMakeFiles/coursework.dir/MachineCode.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sentimental/FAM/LittleCompilerASM/cpp/MachineCode.cpp -o CMakeFiles/coursework.dir/MachineCode.cpp.s
 
 # Object files for target coursework
 coursework_OBJECTS = \
@@ -170,7 +170,7 @@ coursework: CMakeFiles/coursework.dir/FirstSecondStage.cpp.o
 coursework: CMakeFiles/coursework.dir/MachineCode.cpp.o
 coursework: CMakeFiles/coursework.dir/build.make
 coursework: CMakeFiles/coursework.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable coursework"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable coursework"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/coursework.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -183,6 +183,6 @@ CMakeFiles/coursework.dir/clean:
 .PHONY : CMakeFiles/coursework.dir/clean
 
 CMakeFiles/coursework.dir/depend:
-	cd /home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sentimental/Projects/CLionProjects/CourseWorkASM /home/sentimental/Projects/CLionProjects/CourseWorkASM /home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug /home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug /home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sentimental/FAM/LittleCompilerASM/cpp /home/sentimental/FAM/LittleCompilerASM/cpp /home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug /home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug /home/sentimental/FAM/LittleCompilerASM/cpp/cmake-build-debug/CMakeFiles/coursework.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/coursework.dir/depend
 
