@@ -1,0 +1,3 @@
+/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/coursework.dir
+/home/sentimental/Projects/CLionProjects/CourseWorkASM/cmake-build-debug/CMakeFiles/edit_cache.dir
