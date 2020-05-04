@@ -50,15 +50,15 @@ string JccMachineCode(){
 
 string ImmCodeOneLine(LineInstruction alone){
     string res = "";
-    if((alone.TypeOperand1 != const)&&(alone.TypeOperand2 != const)){
+    if((alone.TypeOperand1 != constant)&&(alone.TypeOperand2 != constant)){
         return "";
     }
-    if(alone.TypeOperand1 == const) {
+    if(alone.TypeOperand1 == constant) {
         res = Hex(Dec(alone.operand1),1);
         return res;
     }
 
-    if(alone.TypeOperand2 == const) {
+    if(alone.TypeOperand2 == constant) {
         res = Hex(Dec(alone.operand2),1);
         if((alone.TypeOperand1 == mem)||(alone.TypeOperand1 == mem)){
             return Hex(Dec(alone.operand2),4);

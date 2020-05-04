@@ -35,10 +35,10 @@ vector <ElementOfDisp> MassOfDisp;
  */
 vector<pair<string, vector<string>>> DictionaryOfTokens ={
          {reg,
-                 {"eax", "ebx", "ecx",  "edx",  "esi", "edi", "ebp", "al", "bl",    "dl",  "cl"}},
+                 {"eax", "ebx", "ecx",  "edx",  "esi", "edi", "ebp", "al", "bl", "dl",  "cl","ax","bx","cx","dx","di","si"}},
 
          {instruction,
-                 {"mov", "dec", "test", "push", "bts", "jz", "stosd", "add", "cmp"}},
+                 {"mov", "dec", "test", "push", "bts", "jz", "stosd", "add", "cmp",   "das", "lods", "or", "rol", "jg"}},
 
          {JumpInstr,
                  {"jz"}},

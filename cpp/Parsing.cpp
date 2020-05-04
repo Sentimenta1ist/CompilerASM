@@ -22,10 +22,10 @@ void IfDirectiveWorking() {
     }
 }
 
-bool compareByLength(const User &a, const User &b)
-{
-    return a.segment.size() > b.segment.size();
-}
+//bool compareByLength(const User &a, const User &b)
+//{
+//    return a.segment.size() > b.segment.size();
+//}
 
 void FillMassOfUsers() {
     User alone;
@@ -78,7 +78,7 @@ void FillMassOfUsers() {
             }
         }
     }
-    sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
+    //sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
 }
 
 void LoadFromFile(const char *file) {
@@ -96,6 +96,12 @@ void LoadFromFile(const char *file) {
             for (int i = 0; i < line.size(); i++) {
                 if ((line[i] == ' ') || (line[i] == '\t'))continue;
                 solo += line[i];
+                if(line[i] == '[') {
+                    IdentifyLexeme(one, solo, indicator_of_rows, indicator_of_lexems);
+                    indicator_of_lexems++;
+                    one_row.push_back(one);
+                    solo.clear();
+                }
                 if (line[i + 1] == '\0') {
                     IdentifyLexeme(one, solo, indicator_of_rows, indicator_of_lexems);
                     indicator_of_lexems++;
@@ -103,13 +109,13 @@ void LoadFromFile(const char *file) {
                     solo.clear();
                 }
                 if ((line[i + 1] == ' ') || (line[i + 1] == '\t') || (line[i + 1] == ':') || (line[i + 1] == ',')
-                    || (line[i + 1] == '[') || (line[i + 1] == ']') || (line[i + 1] == '*')) {
+                    || (line[i + 1] == '[') || (line[i + 1] == ']') || (line[i + 1] == '*')|| (line[i + 1] == '+')) {
                     IdentifyLexeme(one, solo, indicator_of_rows, indicator_of_lexems);
                     indicator_of_lexems++;
                     one_row.push_back(one);
                     solo.clear();
                     if ((line[i + 1] == ':') || (line[i + 1] == ',')
-                        || (line[i + 1] == '[') || (line[i + 1] == ']') || (line[i + 1] == '*')) {
+                        || (line[i + 1] == '[') || (line[i + 1] == ']') || (line[i + 1] == '*')|| (line[i + 1] == '+')) {
                         i++;
                         solo += line[i];
                         IdentifyLexeme(one, solo, indicator_of_rows, indicator_of_lexems);
@@ -117,7 +123,7 @@ void LoadFromFile(const char *file) {
                         one_row.push_back(one);
                         solo.clear();
                     }
-                    if (line[i + 1] == ',') {
+                    if (line[i+1] == ',') {
                         i++;
                         solo += line[i];
                         IdentifyLexeme(one, solo, indicator_of_rows, indicator_of_lexems);
@@ -188,7 +194,7 @@ void IdentifyLexeme(lexeme &one, string line, int indicator_of_rows, int indicat
     }
     std::transform(line.begin(), line.end(), line.begin(), [](unsigned char c) { return std::tolower(c); });
     one.name = line;
-    if ((line == ":") || (line == ",") || (line == "[") || (line == "]") || (line == "*")) {
+    if ((line == ":") || (line == ",") || (line == "[") || (line == "]") || (line == "*")|| (line == "+")) {
         one.type = singleLexeme;
     } else {
         for (auto i : DictionaryOfTokens) {

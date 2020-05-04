@@ -34,7 +34,7 @@
 #define errorMessage "* error *"
 
 #define mem "mem"
-#define const "const"
+#define constant "constant"
 #define reg "reg"
 //
 //#define mem8 "mem8"

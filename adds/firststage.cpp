@@ -16,7 +16,7 @@ void CreateSyntax(vector<lexeme> Tokens, struct_of_sentence& alone) {
             alone.number_of_label = Tokens[i].number_of_lexem;
             continue;
         }
-        if ((Tokens[i].type == label)||(Tokens[i].type == labelSeg)) {
+        if (Tokens[i].type == label) {
             alone.number_of_label = Tokens[i].number_of_lexem;
             continue;
         }
@@ -28,7 +28,7 @@ void CreateSyntax(vector<lexeme> Tokens, struct_of_sentence& alone) {
         }
         if (((Tokens[i].type == userId) || (Tokens[i].type == reg) ||
              (Tokens[i].type == segmentWord) || (Tokens[i].type == constChar)
-             || (Tokens[i].type == constDecimal) || (Tokens[i].type == constHex) || (Tokens[i].name == "["))) {
+             || (Tokens[i].type == constDecimal) || (Tokens[i].type == constHex))) {
             alone.number_of_operand1 = Tokens[i].number_of_lexem;
             alone.amount_of_operand1 = 1;
         }
@@ -54,10 +54,10 @@ void LexemeSyntax(const char* file , bool out){
             CreateSyntax(AllTokens[indicator_of_rows], alone);
             AllStruct.push_back(alone);
             if(out){
-                cout << "" << line << endl << endl;
-                //cout << " Lexical analysis:" << endl;
-                //cout << " ------------------------------------------------" << endl;
-                cout << "| # |      Lex      |   Len  |      Type         |" << endl;
+                cout << " Line:   " << line << endl;
+                cout << " Lexical analysis:" << endl;
+                cout << " ------------------------------------------------" << endl;
+                cout << "| # |    Lexeme     | Length |    Type           |" << endl;
                 cout << "|---|---------------|--------|-------------------|" << endl;
                 for(int j = 0; j < AllTokens[indicator_of_rows].size(); j++){
                     cout << '|' << setw(3 )<< j << "|";
@@ -65,9 +65,8 @@ void LexemeSyntax(const char* file , bool out){
                     cout << setw(8) << AllTokens[indicator_of_rows][j].name.size() << "|";
                     cout << setw(19) << AllTokens[indicator_of_rows][j].type << "|" << endl;
                 }
-                //cout << "-------------------------------------------------" << endl;
-                cout << endl;
-                //cout << " Syntax :" << endl;
+                cout << "-------------------------------------------------" << endl;
+                cout << " Syntax :" << endl;
                 cout << " ------------------------------------------------" << endl;
                 if(alone.number_of_label == -1) cout << "|      |";
                 else cout << "|" << setw(6) << alone.number_of_label << "|";
