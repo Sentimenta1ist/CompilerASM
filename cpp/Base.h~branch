@@ -91,8 +91,6 @@ struct OneSegment{
 struct User{
     string name;
     string type;
-    string directiveOfThis;
-    string segment;
     int displacement;
     int size;
 };
@@ -112,8 +110,11 @@ struct LineInstruction{
     string operand2;
     string TypeOperand1;
     string TypeOperand2;
+<<<<<<< HEAD:Base.h
+=======
     int sizeOpernad1;   // 8 or 32
     int sizeOpernad2;   // 8 or 32
+>>>>>>> branch:cpp/Base.h
 };
 
 struct PrefixSegments{
@@ -121,7 +122,6 @@ struct PrefixSegments{
     string fullName;
     int value;
 };
-
 
 extern vector<ElementOfDisp> MassOfDisp;
 extern vector<User> MassOfUser;
