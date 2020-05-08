@@ -30,10 +30,6 @@ algorithm
 regex
 -
 
-/home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.cpp
-FirstSecondStage.h
-/home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.h
-
 /home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.h
 Base.h
 /home/sentimental/FAM/LittleCompilerASM/cpp/Base.h
@@ -43,4 +39,8 @@ Parsing.h
 /home/sentimental/FAM/LittleCompilerASM/cpp/Parsing.h
 Addition.h
 /home/sentimental/FAM/LittleCompilerASM/cpp/Addition.h
+
+/home/sentimental/FAM/LittleCompilerASM/cpp/main.cpp
+FirstSecondStage.h
+/home/sentimental/FAM/LittleCompilerASM/cpp/FirstSecondStage.h
 
