@@ -1,3 +1,0 @@
-/home/sentimental/FAM/LittleCompilerASM/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/sentimental/FAM/LittleCompilerASM/cmake-build-debug/CMakeFiles/coursework.dir
-/home/sentimental/FAM/LittleCompilerASM/cmake-build-debug/CMakeFiles/edit_cache.dir
