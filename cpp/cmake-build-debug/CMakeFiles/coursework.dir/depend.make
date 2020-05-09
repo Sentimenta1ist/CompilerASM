@@ -36,7 +36,9 @@ CMakeFiles/coursework.dir/Parsing.cpp.o: ../Parsing.h
 
 CMakeFiles/coursework.dir/main.cpp.o: ../Addition.h
 CMakeFiles/coursework.dir/main.cpp.o: ../Base.h
+CMakeFiles/coursework.dir/main.cpp.o: ../ErrorCheck.h
 CMakeFiles/coursework.dir/main.cpp.o: ../FirstSecondStage.h
+CMakeFiles/coursework.dir/main.cpp.o: ../MachineCode.h
 CMakeFiles/coursework.dir/main.cpp.o: ../Parsing.h
 CMakeFiles/coursework.dir/main.cpp.o: ../main.cpp
 

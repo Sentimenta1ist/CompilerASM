@@ -10,6 +10,9 @@ string HexForDisp(int);
 string Hex(string);
 string Hex(int , int);
 
+bool IsItMemory(string);
+bool IsItRegister(string);
+
 void IdentifyOperand(LineInstruction &);
 bool EqualsOfVector(vector<lexeme> first,vector<lexeme> second);
 

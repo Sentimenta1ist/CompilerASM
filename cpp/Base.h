@@ -33,15 +33,19 @@
 //for program
 #define errorMessage "* error *"
 
-#define mem "mem"
-#define constant "constant"
-#define reg "reg"
-//
-//#define mem8 "mem8"
-//#define const8 "const8"
-//#define reg8 "reg8"
 
-#define nonOperand  "-1"
+//size of operands
+#define MEM32 "mem32"
+#define IMM32 "constant32"
+#define REG32 "reg32"
+#define MEM16 "mem16"
+#define IMM16 "constant16"
+#define REG16 "reg16"
+#define MEM8 "mem8"
+#define IMM8 "constant8"
+#define REG8 "reg8"
+
+#define NoOperand  "NoOperand"
 
 using namespace std;
 
@@ -102,6 +106,7 @@ struct User{
  */
 struct registerValue{
     string reg32Name;
+    string reg16Name;
     string reg8Name;
     int value;
 };
@@ -112,8 +117,6 @@ struct LineInstruction{
     string operand2;
     string TypeOperand1;
     string TypeOperand2;
-    int sizeOpernad1;   // 8 or 32
-    int sizeOpernad2;   // 8 or 32
 };
 
 struct PrefixSegments{
@@ -122,7 +125,32 @@ struct PrefixSegments{
     int value;
 };
 
+struct MachineCodeInstructionStruct{
+    string name;
+    string op1;
+    string op2;
+    int opcode;
+    int mod_r_m = 0;
+    int registerInOpCode = 0; // mean that opcode = opcode + register;
+};
 
+struct MachineCodeDirectiveStruct{
+    string name;
+    int Startcode;
+    int SizeOfCode;
+};
+
+struct ModRMLine{
+    int mod;
+    string op1;
+    string op2;
+    //int modrm;
+};
+
+extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
+extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
+
+//vector<ModRMLine> ModTable;
 extern vector<ElementOfDisp> MassOfDisp;
 extern vector<User> MassOfUser;
 extern vector<vector<lexeme>> AllTokens;

@@ -124,8 +124,6 @@ void CreateOperandsForInstruction(vector<lexeme> OneLine, LineInstruction &alone
     alone.operand2 = "";
     alone.TypeOperand2 = "";
     alone.TypeOperand1 = "";
-    alone.sizeOpernad1 = 8;
-    alone.sizeOpernad2 = 8;
     int flagSecondOperand = 0;
     for(int i = 1; i < OneLine.size(); i++){
         if(OneLine[i].name == ","){
@@ -157,35 +155,157 @@ int Dec(lexeme constName){
     return result;
 }
 
+bool IsItMemory(string alone){
+    return(alone == MEM32 || alone == MEM16 || alone == MEM8);
+}
+
+bool IsItRegister(string alone){
+    return (alone == REG32 || alone == REG16 || alone == REG8);
+}
+
+
 void IdentifyOperand(LineInstruction &alone){
-//
-//    if(example.empty()) alone. "-1";
-//    for(auto table: RegistersTable){
-//        if(table.reg32Name == example){
-//            return "reg32";
-//        }
-//        if(table.reg8Name == example) {
-//            return "reg8";
-//        }
-//    }
-//
-//    //check for hex const
-//    if((isdigit(example[0]))&&(example[example.size() - 1] == 'h')){
-//        return "const8";
-//    }
-//
-//    //check for decimal const
-//    int flagOfDecimal = 0;
-//    for( auto it:example){
-//        if(!isdigit(it))flagOfDecimal = 1;
-//    }
-//    if(flagOfDecimal == 0)return "const8";
-//    /*
-//     *must identify
-//     */
-//
-//    return "mem32";
-      return;
+      if(alone.operand1.empty() && alone.operand2.empty()) {
+          alone.operand1 = NoOperand;
+          alone.TypeOperand1 = NoOperand;
+          alone.operand2 = NoOperand;
+          alone.TypeOperand2 = NoOperand;
+          return;
+      }
+      if(alone.operand2.empty()){
+          alone.operand2 = NoOperand;
+          alone.TypeOperand2 = NoOperand;
+
+          //check register
+          for(auto it: RegistersTable){
+              if(it.reg8Name == alone.operand1){
+                  alone.TypeOperand1 = REG8;
+                  return;
+              }
+              if(it.reg16Name == alone.operand1){
+                  alone.TypeOperand1 = REG16;
+                  return;
+              }
+              if(it.reg32Name == alone.operand1){
+                  alone.TypeOperand1 = REG32;
+                  return;
+              }
+          }
+
+          //check memory
+          for(auto UserElement :MassOfUser){
+              size_t found = alone.operand1.find(UserElement.name);
+              if((found != string::npos)/*&&(UserElement.type != label)*/){
+                  if(UserElement.directiveOfThis == "db"){
+                      alone.TypeOperand1 = MEM8;
+                      return;
+                  }
+                  if(UserElement.directiveOfThis == "dd"){
+                      alone.TypeOperand1 = MEM32;
+                      return;
+                  }
+              }
+          }
+
+          //check imm
+          alone.TypeOperand1 = IMM8;
+          return;
+      }
+
+    int FlagOperand1 = 0;
+    int FlagOperand2 = 0;
+    for(auto it: RegistersTable) {
+        if (it.reg8Name == alone.operand1) {
+            alone.TypeOperand1 = REG8;
+            FlagOperand1 = 1;
+        }
+        if (it.reg16Name == alone.operand1) {
+            alone.TypeOperand1 = REG16;
+            FlagOperand1 = 1;
+        }
+        if (it.reg32Name == alone.operand1) {
+            alone.TypeOperand1 = REG32;
+            FlagOperand1 = 1;
+        }
+
+        if (it.reg8Name == alone.operand2) {
+            alone.TypeOperand2 = REG8;
+            FlagOperand2 = 1;
+        }
+        if (it.reg16Name == alone.operand2) {
+            alone.TypeOperand2 = REG16;
+            FlagOperand2 = 1;
+        }
+        if (it.reg32Name == alone.operand2) {
+            alone.TypeOperand2 = REG32;
+            FlagOperand2 = 1;
+        }
+    }
+
+    for(auto UserElement :MassOfUser){
+        size_t found = alone.operand1.find(UserElement.name);
+        if((found != string::npos)&&(UserElement.type != label)){
+            if(UserElement.directiveOfThis == "db"){
+                alone.TypeOperand1 = MEM8;
+                FlagOperand1 = 1;
+            }
+            if(UserElement.directiveOfThis == "dd"){
+                alone.TypeOperand1 = MEM32;
+                FlagOperand1 = 1;
+            }
+        }
+
+        found = alone.operand2.find(UserElement.name);
+        if((found != string::npos)&&(UserElement.type != label)){
+            if(UserElement.directiveOfThis == "db"){
+                alone.TypeOperand2 = MEM8;
+                FlagOperand2 = 1;
+            }
+            if(UserElement.directiveOfThis == "dd"){
+                alone.TypeOperand2 = MEM32;
+                FlagOperand2 = 1;
+            }
+        }
+    }
+    if(!FlagOperand1 && alone.operand1[alone.operand1.size() - 1] == ']'){
+        if(alone.TypeOperand2 == REG32){
+            alone.TypeOperand1 = MEM32;
+            return;
+        }
+        if(alone.TypeOperand2 == REG8){
+            alone.TypeOperand1 = MEM8;
+            return;
+        }
+    }
+    if(!FlagOperand2 && alone.operand2[alone.operand2.size() - 1] == ']'){
+        if(alone.TypeOperand1 == REG32){
+            alone.TypeOperand2 = MEM32;
+            return;
+        }
+        if(alone.TypeOperand1 == REG8){
+            alone.TypeOperand2 = MEM8;
+            return;
+        }
+    }
+
+    if(!FlagOperand2){
+        if(alone.instr == "add"){   //and another instr if u have
+            if(alone.TypeOperand1 == REG32 || alone.TypeOperand1 == MEM32){
+                if(Dec(alone.operand2) < 256){
+                    alone.TypeOperand2 = IMM8;
+                    return;
+                }
+            }
+        }
+        if((alone.TypeOperand1 == REG32) || (alone.TypeOperand1 == MEM32)) {
+            alone.TypeOperand2 = IMM32;
+            return;
+        }
+        if((alone.TypeOperand1 == REG8) || (alone.TypeOperand1 == MEM8)) {
+            alone.TypeOperand2 = IMM8;
+            return;
+        }
+    }
 }
 
 bool EqualsOfVector(vector<lexeme> first,vector<lexeme> second){
@@ -243,6 +363,12 @@ void TableOutPut(){
 }
 
 int Dec(string number){
+    if(number[number.size() - 1] == 'h'){
+        lexeme one;
+        one.type = constHex;
+        one.name = number;
+        return Dec(one);
+    }
     for(int i = 0; i < number.size();i++){
         if((number[i] <= '9')&&(number[i] >='0')){
             return stoi(number);

@@ -11,8 +11,7 @@ void IfDirectiveWorking() {
                         Comment.name = ";";
                         int j = i;
                         while(AllTokens[j][0].name != "endif"){
-                            vector<lexeme>::iterator it = AllTokens[j].begin();
-                            AllTokens[j].insert(it,Comment);
+                            AllTokens[j].insert(AllTokens[j].begin(),Comment);
                             j++;
                         }
                     }
@@ -22,10 +21,10 @@ void IfDirectiveWorking() {
     }
 }
 
-//bool compareByLength(const User &a, const User &b)
-//{
-//    return a.segment.size() > b.segment.size();
-//}
+bool compareByLength(const User &a, const User &b)
+{
+    return a.segment.size() > b.segment.size();
+}
 
 void FillMassOfUsers() {
     User alone;
@@ -78,7 +77,7 @@ void FillMassOfUsers() {
             }
         }
     }
-    //sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
+    sort(MassOfUser.begin(),MassOfUser.end(), compareByLength);
 }
 
 void LoadFromFile(const char *file) {

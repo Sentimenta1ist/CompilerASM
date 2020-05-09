@@ -12,19 +12,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8cd18d6-1be6-4c46-a9a1-912daea0f74c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/CourseWorkASM.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Addition.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Addition.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Addition.h" beforeDir="false" afterPath="$PROJECT_DIR$/Addition.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Base.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstSecondStage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FirstSecondStage.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MachineCode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MachineCode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineCode.h" beforeDir="false" afterPath="$PROJECT_DIR$/MachineCode.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Parsing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Parsing.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Addition.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Addition.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Base.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Base.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/ErrorCheck.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/ErrorCheck.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/FirstSecondStage.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/FirstSecondStage.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/MachineCode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/MachineCode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Parsing.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/Parsing.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/coursework.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/coursework" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/coursework" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/test.asm" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -78,6 +83,8 @@
       <updated>1588367025367</updated>
       <workItem from="1588367028054" duration="23000" />
       <workItem from="1588580889852" duration="5630000" />
+      <workItem from="1588961839452" duration="911000" />
+      <workItem from="1589024145108" duration="23582000" />
     </task>
     <servers />
   </component>
@@ -85,56 +92,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1864" height="65" key="GridCell.Tab.0.bottom" timestamp="1588587523073">
+    <state width="1864" height="355" key="GridCell.Tab.0.bottom" timestamp="1589055508287">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="65" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1588587523073" />
-    <state width="1864" height="65" key="GridCell.Tab.0.center" timestamp="1588587523073">
+    <state width="1864" height="355" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508287" />
+    <state width="1864" height="355" key="GridCell.Tab.0.center" timestamp="1589055508286">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="65" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1588587523073" />
-    <state width="1864" height="65" key="GridCell.Tab.0.left" timestamp="1588587523072">
+    <state width="1864" height="355" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508286" />
+    <state width="1864" height="355" key="GridCell.Tab.0.left" timestamp="1589055508286">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="65" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1588587523072" />
-    <state width="1864" height="65" key="GridCell.Tab.0.right" timestamp="1588587523073">
+    <state width="1864" height="355" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508286" />
+    <state width="1864" height="355" key="GridCell.Tab.0.right" timestamp="1589055508287">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="65" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1588587523073" />
-    <state width="1864" height="334" key="GridCell.Tab.1.bottom" timestamp="1588587235380">
+    <state width="1864" height="355" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508287" />
+    <state width="1864" height="355" key="GridCell.Tab.1.bottom" timestamp="1589055508289">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1588587235380" />
-    <state width="1864" height="334" key="GridCell.Tab.1.center" timestamp="1588587235380">
+    <state width="1864" height="355" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508289" />
+    <state width="1864" height="355" key="GridCell.Tab.1.center" timestamp="1589055508288">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="334" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1588587235380" />
-    <state width="1864" height="334" key="GridCell.Tab.1.left" timestamp="1588587235380">
+    <state width="1864" height="355" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508288" />
+    <state width="1864" height="355" key="GridCell.Tab.1.left" timestamp="1589055508288">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="334" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1588587235380" />
-    <state width="1864" height="334" key="GridCell.Tab.1.right" timestamp="1588587235380">
+    <state width="1864" height="355" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508288" />
+    <state width="1864" height="355" key="GridCell.Tab.1.right" timestamp="1589055508289">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1864" height="334" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1588587235380" />
-    <state x="597" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1588580898880">
+    <state width="1864" height="355" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1589055508289" />
+    <state x="597" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1589024145392">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state x="597" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1588580898880" />
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1588581231677">
+    <state x="597" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1589024145392" />
+    <state x="368" y="0" width="1552" height="641" key="dock-window-1" timestamp="1589032756240">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1043@0.0.1920.1043" timestamp="1588581231677" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Parsing.cpp</url>
-          <line>97</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="368" y="0" width="1552" height="641" key="dock-window-1/0.0.1920.1043@0.0.1920.1043" timestamp="1589032756240" />
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1589046538524">
+      <screen x="0" y="0" width="1920" height="1043" />
+    </state>
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1043@0.0.1920.1043" timestamp="1589046538524" />
   </component>
 </project>

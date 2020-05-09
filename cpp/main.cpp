@@ -1,15 +1,11 @@
 #include "FirstSecondStage.h"
-//#include "MachineCode.h"
-
-
+#include "MachineCode.h"
 
 
 int main() {
     LoadFromFile("test.asm");
-    LexemeSyntax("test.asm" , 1);
-    //FillMassOfUsers();
-    //IfDirectiveWorking();
-    //createAllLst("test.asm");
-    //cout << Dec("0a");
+    LexemeSyntax("test.asm" , 0);
+    createAllLst("test.asm");
+
     return 0;
 }

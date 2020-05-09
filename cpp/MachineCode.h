@@ -5,23 +5,6 @@
 #include "Addition.h"
 #include "ErrorCheck.h"
 
-struct MachineCodeInstructionStruct{
-    int prefix;
-    string name;
-    int opcode;
-    int mod_r_m;
-    int registerInOpCode = 0; // mean that opcode = opcode + register;
-};
-
-struct MachineCodeDirectiveStruct{
-    string name;
-    int Startcode;
-    int SizeOfCode;
-};
-
-extern vector<MachineCodeInstructionStruct> MachineCodeInstruction;
-extern vector<MachineCodeDirectiveStruct> MachineCodeDirective;
-
 
 // create machine code
 string ImmCodeOneLine(LineInstruction);
