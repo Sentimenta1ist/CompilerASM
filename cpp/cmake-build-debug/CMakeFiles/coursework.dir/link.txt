@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/coursework.dir/main.cpp.o CMakeFiles/coursework.dir/Addition.cpp.o CMakeFiles/coursework.dir/Parsing.cpp.o CMakeFiles/coursework.dir/Base.cpp.o CMakeFiles/coursework.dir/ErrorCheck.cpp.o CMakeFiles/coursework.dir/FirstSecondStage.cpp.o CMakeFiles/coursework.dir/MachineCode.cpp.o  -o coursework 
