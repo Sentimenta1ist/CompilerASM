@@ -1,3 +1,3 @@
-cpp/.idea
-cpp/cmake-build-debug/*
-!cpp/cmake-build-debug/test.asm
+/cpp/.idea
+/cpp/cmake-build-debug/*
+!/cpp/cmake-build-debug/test.asm
