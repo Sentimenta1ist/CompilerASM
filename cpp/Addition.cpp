@@ -165,6 +165,8 @@ bool IsItRegister(string alone){
 
 
 void IdentifyOperand(LineInstruction &alone){
+    int FlagOperand1 = 0;
+    int FlagOperand2 = 0;
       if(alone.operand1.empty() && alone.operand2.empty()) {
           alone.operand1 = NoOperand;
           alone.TypeOperand1 = NoOperand;
@@ -173,9 +175,9 @@ void IdentifyOperand(LineInstruction &alone){
           return;
       }
       if(alone.operand2.empty()){
-          alone.operand2 = NoOperand;
+          //alone.operand2 = NoOperand;
           alone.TypeOperand2 = NoOperand;
-
+          //FlagOperand1 = 1;
           //check register
           for(auto it: RegistersTable){
               if(it.reg8Name == alone.operand1){
@@ -212,8 +214,6 @@ void IdentifyOperand(LineInstruction &alone){
           return;
       }
 
-    int FlagOperand1 = 0;
-    int FlagOperand2 = 0;
     for(auto it: RegistersTable) {
         if (it.reg8Name == alone.operand1) {
             alone.TypeOperand1 = REG8;

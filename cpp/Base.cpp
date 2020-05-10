@@ -134,6 +134,12 @@ vector <PrefixSegments> TableOfPrefixesSegment{
 
 
 vector<MachineCodeInstructionStruct> MachineCodeInstruction{  //create for 32 bit operands
+        {"mov", REG32,IMM32,0xB8,0,1},
+        {"mov", REG8,IMM8,0xB0,0,1},
+
+        {"dec",REG8,NoOperand,0xFE,1,0},
+        {"dec",REG32,NoOperand,0x48,0,1},
+
         {"add",MEM32,IMM8, 0x83,1},
         {"add",MEM32,IMM32, 0x81,1 },
         {"add",MEM8,IMM8, 0x80,1 },
@@ -151,13 +157,7 @@ vector<MachineCodeInstructionStruct> MachineCodeInstruction{  //create for 32 bi
 
         {"stosd",NoOperand, NoOperand,0xAB},
 
-        {"mov", REG32,IMM32,0xB8,0,1},
-        {"mov", REG8,IMM8,0xB0,0,1},
-
-        {"dec",REG8,NoOperand,0xFE,1,0},
-        {"dec",REG32,NoOperand,0x48,0,1},
-
-        {"bts",MEM32,REG32,0x0FAB},
+        {"bts",MEM32,REG32,0x0FAB,1},
 
         {"and",REG32,REG32,0x21,1},
         {"and",REG8,REG8,0x20,1},

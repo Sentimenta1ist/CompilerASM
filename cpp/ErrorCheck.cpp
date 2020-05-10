@@ -42,14 +42,24 @@ bool CheckForUndefined(vector<lexeme> example) {
 }
 
 bool CheckForOperands(vector<lexeme> example){        //return true if n operand with instruction error
-
-
-    return false;
+    if(example[0].type != instruction) return false;
+    LineInstruction alone;
+    CreateOperandsForInstruction(example,alone);
+    IdentifyOperand(alone);
+    int flag_of_error_operands = 1;
+    for(auto it: MachineCodeInstruction){
+        if(it.op1 == alone.TypeOperand1 && it.op2 == alone.TypeOperand2 && it.name == alone.instr){
+            flag_of_error_operands = 0;
+        }
+    }
+    return flag_of_error_operands;
 }
 
 bool FullCheckOFLine(vector <lexeme> line){
-    if(CheckForOperands(line))return true;
+
     if(CheckForUndefined(line)) return true;
+
+    //if(CheckForOperands(line))return true;
     return false;
 }
 

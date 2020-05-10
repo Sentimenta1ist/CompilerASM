@@ -41,7 +41,7 @@ string ModrmOneLine( LineInstruction alone){
 
     int mod = 0b00;
     int regis = 0b000;
-    int regrm = 0b000;
+    int regrm = 0b100;
 
     if(alone.TypeOperand1 == NoOperand){
         return "";
@@ -53,14 +53,23 @@ string ModrmOneLine( LineInstruction alone){
         }
     }
     string res = DispOneLine(alone);
-    if(res.size() == 2){
+    string ressib = SibOneLine(alone);
+    if(res.size() == 8 && ressib.empty()){
+        mod = 0b00;
+        regrm &= 0b000;
+        regrm |= 0b101;
+    }
+    else if(res.size() == 2){
         mod |= 0b01;
     }
-    if(res.size() == 8){
+    else if(res.size() == 8){
         mod |= 0b10;
     }
-    if(IsItRegister(alone.TypeOperand1) && IsItRegister(alone.TypeOperand2)){
+    else if(IsItRegister(alone.TypeOperand1) && IsItRegister(alone.TypeOperand2)){
         mod |= 0b11;
+    }
+    else {
+        mod = 0b00;
     }
 
     if(IsItRegister(alone.TypeOperand1)){
@@ -74,6 +83,34 @@ string ModrmOneLine( LineInstruction alone){
         for(auto regi : RegistersTable){
             if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand2)||(regi.reg8Name == alone.operand2)||(regi.reg8Name == alone.operand1)){
                 regis |= regi.value;
+            }
+        }
+    }
+    string operand;
+    if(IsItMemory(alone.TypeOperand1)){
+        operand = alone.operand1;
+    }
+    else if(IsItMemory(alone.TypeOperand2)){
+        operand = alone.operand2;
+    }
+    else {
+        return Hex((mod << 3 | regis) << 3 | regrm);
+    }
+    int flag = 0;
+    if(!ressib.empty()){
+        regrm &= 0b000;
+        regrm |= 0b100;
+
+    }
+    if(ressib.empty()){
+        for(auto it: RegistersTable){
+
+            //search index reg
+            size_t found_index = operand.find(it.reg32Name);
+            if((found_index != string::npos)) {
+                regrm &= 0b000;
+                regrm |= it.value;
+                flag = 1;
             }
         }
     }
