@@ -1,5 +1,6 @@
-/cpp/.idea
-/pyth/.idea
-/pyth/venv
-/cpp/cmake-build-debug/*
-!/cpp/cmake-build-debug/test.asm
+cpp/.idea
+pyth/*
+!pyth/*.py
+!pyth/*.asm
+cpp/cmake-build-debug/*
+!cpp/cmake-build-debug/test.asm
