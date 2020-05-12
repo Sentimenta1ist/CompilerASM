@@ -3,7 +3,9 @@
 void IfDirectiveWorking() {
     for (int i = 0; i < AllTokens.size(); i++) {
         if (AllTokens[i].empty())continue;
+
         if (AllTokens[i][0].name == "if") {
+
             for (auto it: MassOfUser) {
                 if(it.name == AllTokens[i][1].name){
                     if(it.size == 0){
@@ -17,6 +19,7 @@ void IfDirectiveWorking() {
                     }
                 }
             }
+
         }
     }
 }

@@ -41,7 +41,7 @@ string ModrmOneLine( LineInstruction alone){
 
     int mod = 0b00;
     int regis = 0b000;
-    int regrm = 0b100;
+    int regrm = 0b101;
 
     if(alone.TypeOperand1 == NoOperand){
         return "";
@@ -52,6 +52,7 @@ string ModrmOneLine( LineInstruction alone){
             return "";
         }
     }
+
     string res = DispOneLine(alone);
     string ressib = SibOneLine(alone);
     if(res.size() == 8 && ressib.empty()){
@@ -72,20 +73,24 @@ string ModrmOneLine( LineInstruction alone){
         mod = 0b00;
     }
 
-    if(IsItRegister(alone.TypeOperand1)){
-        for(auto regi : RegistersTable){
-            if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand2)||(regi.reg8Name == alone.operand2)||(regi.reg8Name == alone.operand1)){
-                regis |= regi.value;
-            }
-        }
-    }
     if(IsItRegister(alone.TypeOperand2)){
         for(auto regi : RegistersTable){
-            if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand2)||(regi.reg8Name == alone.operand2)||(regi.reg8Name == alone.operand1)){
+            if((regi.reg32Name == alone.operand2)||(regi.reg32Name == alone.operand2)||(regi.reg8Name == alone.operand2)||(regi.reg8Name == alone.operand2)){
+                regis |= regi.value;
+                regrm &= 0b000;
+                regrm |= regi.value;
+
+            }
+        }
+    }
+    if(IsItRegister(alone.TypeOperand1)){
+        for(auto regi : RegistersTable){
+            if((regi.reg32Name == alone.operand1)||(regi.reg32Name == alone.operand1)||(regi.reg8Name == alone.operand1)||(regi.reg8Name == alone.operand1)){
                 regis |= regi.value;
             }
         }
     }
+
     string operand;
     if(IsItMemory(alone.TypeOperand1)){
         operand = alone.operand1;
@@ -94,9 +99,11 @@ string ModrmOneLine( LineInstruction alone){
         operand = alone.operand2;
     }
     else {
-        return Hex((mod << 3 | regis) << 3 | regrm);
+        return Hex((mod << 3 | regrm) << 3 | regis);
     }
+
     int flag = 0;
+
     if(!ressib.empty()){
         regrm &= 0b000;
         regrm |= 0b100;
@@ -205,7 +212,7 @@ string MachineCodeForInstruction(vector<lexeme> OneLine){
 string MachineCodeForDirective(vector<lexeme>OneLine){
     string MachineCode = "";
     if(OneLine.size() < 2) return "";
-    if(OneLine[1].type != directive)return "";
+    if(OneLine[1].type != directive) return "";
 
     for(int i = 0; i < MassOfUser.size(); i++){
         if(MassOfUser[i].name == OneLine[0].name){
