@@ -304,13 +304,13 @@ void createAllLst( char * inputFile){
             string result = "";
             string MachineCodeOne = MachineCodeForOneLine(AllTokens[i]);
 
-            result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
+           // result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
             result.insert(0, HexForDisp(MassOfDisp[MassOfDisp.size() - 1].Value));
             result.insert(6,"   "); // for good output
-            for (int k = result.size(); k < 40; k++) {
+            for (int k = result.size(); k < 5; k++) {
                 result += ' ';
             }
-            result += '|';
+            result += ' ';
             cout << result;
             cout << " " << lineInFile;
             cout << endl;
