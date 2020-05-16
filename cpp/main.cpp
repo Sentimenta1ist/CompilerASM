@@ -4,7 +4,7 @@
 
 int main() {
     LoadFromFile("test.asm");
-    LexemeSyntax("test.asm" , 0);
+    LexemeSyntax("test.asm" , false);
     createAllLst("test.asm");
 
     return 0;

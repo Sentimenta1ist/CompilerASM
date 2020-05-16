@@ -1,7 +1,8 @@
 #include "MachineCode.h"
 
-string JccMachineCode(){
-    return "74 00 90 90 90 90";
+string JccMachineCode(LineInstruction alone){
+    string res = "74 ";
+    return res + "90 90 90 90";
 }
 
 
@@ -248,7 +249,7 @@ string MachineCodeForOneLine( vector<lexeme> OneLine){
     }
     string MachineCode = "";
 
-    if(OneLine[0].name == "jz") return JccMachineCode();          //mod only for jcc instruction( may be will be update )
+    if(OneLine[0].name == "jz") return JccMachineCode(alone);          //mod only for jcc instruction( may be will be update )
 
     MachineCode +=  MachineCodeForDirective(OneLine);
     MachineCode += MachineCodeForInstruction(OneLine);
@@ -304,13 +305,13 @@ void createAllLst( char * inputFile){
             string result = "";
             string MachineCodeOne = MachineCodeForOneLine(AllTokens[i]);
 
-           // result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
+            result += MachineCodeOne;                                   //comment this line, if u wanna only Displacement column
             result.insert(0, HexForDisp(MassOfDisp[MassOfDisp.size() - 1].Value));
             result.insert(6,"   "); // for good output
-            for (int k = result.size(); k < 5; k++) {
+            for (int k = result.size(); k < 40; k++) {
                 result += ' ';
             }
-            result += ' ';
+            result += '|';
             cout << result;
             cout << " " << lineInFile;
             cout << endl;

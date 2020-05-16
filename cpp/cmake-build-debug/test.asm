@@ -13,7 +13,6 @@ label1:
  	test	Vd,ebx
  	test al, [eax+edi*4]
 	add	vb[ebp*8],56h
-	;mov	eax, Vd
 	dec 	eax
 	push	100
 	mov	esi, 1
@@ -31,6 +30,5 @@ lend:
 	stosd
 	cmp	eax, esi
 	jz label1
-	and eax,tbx
 Code 	ends
 END

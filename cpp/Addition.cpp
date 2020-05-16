@@ -105,13 +105,13 @@ string Hex(string number) {
 
 string HexForDisp(int number){
     string result = Hex(number);
-    result.insert (result.size() ," ");
-    if (number == 0)return " 0000 ";
+    result.insert (result.size() ,"|");
+    if (number == 0)return "|0000|";
     if (number == -1)return "|----|";
     for (int i = result.size(); i < 5; i++) {
         result.insert(0, "0");
     }
-    result.insert(0, " ");
+    result.insert(0, "|");
     return result;
 }
 
