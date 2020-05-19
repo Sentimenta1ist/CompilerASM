@@ -12,7 +12,7 @@ string DispOneLine(LineInstruction);
 string OpCodeOneLine(LineInstruction);
 string SibOneLine(LineInstruction);
 string ModrmOneLine( LineInstruction );
-string JccMachineCode(LineInstruction);
+string JccMachineCode();
 
 //sum machine code
 string MachineCodeForInstruction(vector <lexeme>);

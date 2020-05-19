@@ -55,8 +55,8 @@ void LexemeSyntax(const char* file , bool out){
             AllStruct.push_back(alone);
             if(out){
                 cout << "" << line << endl << endl;
-                //cout << " Lexical analysis:" << endl;
-                //cout << " ------------------------------------------------" << endl;
+                cout << " Lexical analysis:" << endl;
+                cout << " ------------------------------------------------" << endl;
                 cout << "| # |      Lex      |   Len  |      Type         |" << endl;
                 cout << "|---|---------------|--------|-------------------|" << endl;
                 for(int j = 0; j < AllTokens[indicator_of_rows].size(); j++){
@@ -65,9 +65,9 @@ void LexemeSyntax(const char* file , bool out){
                     cout << setw(8) << AllTokens[indicator_of_rows][j].name.size() << "|";
                     cout << setw(19) << AllTokens[indicator_of_rows][j].type << "|" << endl;
                 }
-                //cout << "-------------------------------------------------" << endl;
+                cout << "-------------------------------------------------" << endl;
                 cout << endl;
-                //cout << " Syntax :" << endl;
+                cout << " Syntax :" << endl;
                 cout << " ------------------------------------------------" << endl;
                 if(alone.number_of_label == -1) cout << "|      |";
                 else cout << "|" << setw(6) << alone.number_of_label << "|";

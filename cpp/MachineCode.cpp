@@ -1,6 +1,6 @@
 #include "MachineCode.h"
 
-string JccMachineCode(LineInstruction alone){
+string JccMachineCode(){
     string res = "74 ";
     return res + "90 90 90 90";
 }
@@ -249,7 +249,7 @@ string MachineCodeForOneLine( vector<lexeme> OneLine){
     }
     string MachineCode = "";
 
-    if(OneLine[0].name == "jz") return JccMachineCode(alone);          //mod only for jcc instruction( may be will be update )
+    if(OneLine[0].name == "jz") return JccMachineCode();          //mod only for jcc instruction( may be will be update )
 
     MachineCode +=  MachineCodeForDirective(OneLine);
     MachineCode += MachineCodeForInstruction(OneLine);
