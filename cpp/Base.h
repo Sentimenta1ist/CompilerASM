@@ -48,7 +48,11 @@
 #define NoOperand  "NoOperand"
 
 using namespace std;
-
+class Line{
+public:
+    Line();
+    ~Line();
+};
 /*
  *struct of one lexeme
  * most useful is name and type
