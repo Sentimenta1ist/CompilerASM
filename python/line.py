@@ -1,28 +1,26 @@
-class OneLine(object):
+from base_information import types_of_lexemes
 
-    def __init__(self, color, doors, tires, vtype):
-        self.color = color
-        self.doors = doors
-        self.tires = tires
-        self.vtype = vtype
 
-    def reconstructor(self, color, doors, tires, vtype):
-        self.color = color
-        self.doors = doors
-        self.tires = tires
-        self.vtype = vtype
+def determine_type(name):
 
-    def brake(self):
-        """
-        Stop the car
-        """
-        return "%s braking" % self.vtype
+    for one_type in types_of_lexemes.values():
+        print(one_type)
 
-    def drive(self):
-        """
-        Drive the car
-        """
-        return "I'm driving a %s %s!" % (self.color, self.vtype)
 
-    def printThis(self):
-        return "%s %d %s %d" % (self.color, self.doors, self.vtype, self.tires)
+class OneLexeme(object):
+
+    def __init__(self, name, type_of):
+        self.name = name
+        self.type_of = type_of
+
+    def reconstructor(self, name, type_of):
+        self.name = name
+        self.type_of = type_of
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_type_of(self, type_of):
+        self.type_of = type_of
+
+
