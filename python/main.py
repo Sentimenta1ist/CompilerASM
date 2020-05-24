@@ -5,4 +5,3 @@ from line import determine_type
 
 if __name__ == "__main__":
     read_from_file("test.asm")
-    #print(determine_type("ax"))

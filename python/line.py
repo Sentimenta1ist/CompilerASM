@@ -31,16 +31,18 @@ def determine_type(name):
 
 class OneLexeme(object):
 
-    def __init__(self, name, type_of):
+    def __init__(self, name, type_of, number):
         self.name = name
         self.type_of = type_of
+        self.number = number
 
     def __print__(self):
         print("%s %s", self.name, self.type_of)
 
-    def reconstructor(self, name, type_of):
+    def reconstructor(self, name, type_of, number):
         self.name = name
         self.type_of = type_of
+        self.number = number
 
     def set_name(self, name):
         self.name = name
@@ -49,4 +51,4 @@ class OneLexeme(object):
         self.type_of = type_of
 
     def __repr__(self):
-        return '(name - {}; type - {})'.format(self.name, self.type_of)
+        return '(# - {}; name - {}; type - {})\n'.format(self.number,self.name, self.type_of)
