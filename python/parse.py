@@ -19,10 +19,9 @@ def read_from_file(test_file):
         vector_of_lines = []
         number = 0
         for one_lexeme in one_line_of_lexemes:
-            lexeme = OneLexeme(one_lexeme, determine_type(one_lexeme),  number)
+            lexeme = OneLexeme(one_lexeme,  number)
             number += 1
             vector_of_lines.append(lexeme)
         base_information.all_lexemes.append(vector_of_lines)
-    for one_element in base_information.all_lexemes:
-        print(one_element)
+
 
