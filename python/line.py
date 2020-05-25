@@ -6,7 +6,7 @@ def get_key(dictionary, value):
         if v == value:
             return k
 
-
+# check push
 def determine_type(name):
     work_space = ''
     work_space += name
