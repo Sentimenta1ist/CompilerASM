@@ -9,9 +9,8 @@ Data  ends
 Code Segment
 label1:
     jz lend
-     mov eax, Vd
     dec  eax
-     push 100
+    push 100
     mov esi, 1
     test eax,FS:Vd[esi*2]
     bts Vd[esi*4], eax
