@@ -21,8 +21,10 @@ def lexeme_and_syntax(file_name):
 
 if __name__ == "__main__":
     read_from_file("test.asm")
-    #lexeme_and_syntax("test.asm")
+    lexeme_and_syntax("test.asm")
 
     for line in base_information.all_lexemes:
-        lexeme = OneLine(line)
-        print(lexeme)
+        base_information.all_lines_of_lexemes.append(OneLine(line))
+
+    for i in base_information.all_lines_of_lexemes:
+       # print(i)

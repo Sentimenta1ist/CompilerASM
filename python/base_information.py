@@ -16,7 +16,6 @@ types_of_lexemes = {
     SEGMENT_WORD: ['segment', 'end', 'ends']
 }
 
-
-
-
 all_lexemes = []
+
+all_lines_of_lexemes = []
