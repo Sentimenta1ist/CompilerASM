@@ -6,6 +6,7 @@ def get_key(dictionary, value):
         if v == value:
             return k
 
+
 # check push
 def determine_type(name):
     work_space = ''
@@ -33,10 +34,7 @@ class OneLexeme(object):
 
     def __init__(self, name, number, ):
         self.type_of = determine_type(name)
-        if determine_type(name) == 'char const':
-            self.name = name
-        else:
-            self.name = name.lower()
+        self.name = name if determine_type(name) == 'char const' else name.lower()
         self.number = number
 
     def __print__(self):
@@ -57,16 +55,27 @@ class OneLexeme(object):
         return '|{:3}|{:15}|{:8}|{:19}|'.format(self.number, self.name, len(self.name), self.type_of)
 
 
+class GlobalDisplacement:
+    def __init__(self, disp):
+        self.disp = disp
+        self.disp_format = '{:X}'.format(self.disp)
+        while len(self.disp_format) < 4:
+            self.disp_format = '0'+self.disp_format
+
+    def __repr__(self):
+        return  self.disp_format
+
+
 class OneLine(object):
     def __init__(self, one_line_of_lexeme):
         self.list_of_this_line = one_line_of_lexeme
         self.name = ''
         for one_lexeme in one_line_of_lexeme:
             self.name += str(one_lexeme.name) + ' '
-        self.displacement = 0
+        self.displacement = GlobalDisplacement(15)
 
     def new_disp_of_line(self, displacement):
-        self.displacement = displacement
+        self.displacement = GlobalDisplacement(displacement)
 
     def __repr__(self):
         return '{}'.format(self.name)

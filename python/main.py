@@ -3,6 +3,7 @@ import base_information
 from parse import read_from_file
 from line import determine_type
 from line import OneLine
+from line import GlobalDisplacement
 
 
 def lexeme_and_syntax(file_name):
@@ -26,5 +27,6 @@ if __name__ == "__main__":
     for line in base_information.all_lexemes:
         base_information.all_lines_of_lexemes.append(OneLine(line))
 
-    for i in base_information.all_lines_of_lexemes:
-       # print(i)
+    for line in base_information.all_lines_of_lexemes:
+        print(line.displacement)
+        print(line)
