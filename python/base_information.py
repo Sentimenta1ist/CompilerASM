@@ -6,6 +6,15 @@ SEGMENT_WORD = 'segment word'
 LABEL_SEGMENT = 'segment label'
 ONE_SYMBL_LEXEME = 'one smb lexeme'
 
+
+class InstructionInformation(object):
+    def __init__(self, name, opcode):
+        self.name = name;
+
+
+
+        
+
 types_of_lexemes = {
     REG_16: ['ax', 'cx', 'dx', 'bx', 'sp', 'bp', 'si', 'di'],
     REG_8: ['al', 'cl', 'dl', 'bl', 'ah', 'ch', 'dh', 'bh'],
@@ -15,6 +24,10 @@ types_of_lexemes = {
     ONE_SYMBL_LEXEME: [';', ',', ':', ']', '[', '+', '*'],
     SEGMENT_WORD: ['segment', 'end', 'ends']
 }
+
+global_dictionary = [
+
+]
 
 all_lexemes = []
 

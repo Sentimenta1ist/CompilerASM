@@ -55,7 +55,7 @@ class OneLexeme(object):
         return '|{:3}|{:15}|{:8}|{:19}|'.format(self.number, self.name, len(self.name), self.type_of)
 
 
-class GlobalDisplacement:
+class GlobalDisplacement(object):
     def __init__(self, disp):
         self.disp = disp
         self.disp_format = '{:X}'.format(self.disp)
@@ -79,3 +79,7 @@ class OneLine(object):
 
     def __repr__(self):
         return '{}'.format(self.name)
+
+    def determine_operands(self):
+        pass
+

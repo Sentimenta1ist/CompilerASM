@@ -28,5 +28,4 @@ if __name__ == "__main__":
         base_information.all_lines_of_lexemes.append(OneLine(line))
 
     for line in base_information.all_lines_of_lexemes:
-        print(line.displacement + '  ')
-        print(line)
+        print('{}               {}'.format(line.displacement, line))
