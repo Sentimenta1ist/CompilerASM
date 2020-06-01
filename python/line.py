@@ -81,5 +81,6 @@ class OneLine(object):
         return '{}'.format(self.name)
 
     def determine_operands(self):
+
         pass
 
