@@ -5,6 +5,9 @@
 #include "Addition.h"
 #include "ErrorCheck.h"
 
+class Displacement{
+
+};
 
 // create machine code
 string ImmCodeOneLine(LineInstruction);

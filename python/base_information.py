@@ -16,8 +16,6 @@ LABEL_SEGMENT = 'segment label'
 ONE_SYMBL_LEXEME = 'one smb lexeme'
 NONE_OPERAND = 'no operand'
 
-#today go to kiev :3
-
 # 48+rw     DEC r16
 # FE /1     DEC r/m8
 
